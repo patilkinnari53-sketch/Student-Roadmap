@@ -819,6 +819,7 @@
             "A": {
                 title: "Healthcare & Science",
                 desc: "You have a natural calling for healing and discovery. Your empathy combined with a scientific mind makes you perfect for roles that improve human life and well-being.",
+                featured_career: { name: "Doctor", slug: "doctor" },
                 career_links: [
                     { name: "Doctor", slug: "doctor" },
                     { name: "Nursing", slug: "nurse" },
@@ -831,6 +832,7 @@
             "B": {
                 title: "Education & Government",
                 desc: "You are a natural leader and communicator who values social impact. You thrive in environments where you can shape minds, serve the public, and lead communities.",
+                featured_career: { name: "Civil Servant", slug: "civil-servant" },
                 career_links: [
                     { name: "School Teacher", slug: "school-teacher" },
                     { name: "College Lecturer", slug: "college-lecturer" },
@@ -843,6 +845,7 @@
             "C": {
                 title: "IT & Engineering",
                 desc: "Your logical mind and problem-solving skills are your greatest assets. You excel at building systems, designing infrastructure, and creating the technologies of tomorrow.",
+                featured_career: { name: "Software Developer", slug: "software-developer" },
                 career_links: [
                     { name: "Software Developer", slug: "software-developer" },
                     { name: "AI / ML Engineer", slug: "ai-ml-engineer" },
@@ -855,6 +858,7 @@
             "D": {
                 title: "Business, Finance & Law",
                 desc: "You are strategic, analytical, and driven by results. You enjoy navigating complex systems, managing resources, and making high-impact decisions in the professional world.",
+                featured_career: { name: "Chartered Accountant", slug: "chartered-accountant" },
                 career_links: [
                     { name: "Chartered Accountant", slug: "chartered-accountant" },
                     { name: "Bank Officer", slug: "bank-officer" },
@@ -867,6 +871,7 @@
             "E": {
                 title: "Creative, Media & Arts",
                 desc: "You see the world through a lens of innovation and aesthetics. Your ability to express ideas uniquely and connect with people makes you a perfect fit for the creative industries.",
+                featured_career: { name: "Graphic Designer", slug: "graphic-designer" },
                 career_links: [
                     { name: "Graphic Designer", slug: "graphic-designer" },
                     { name: "Professional Chef", slug: "chef" },
@@ -1040,10 +1045,12 @@
                 localStorage.removeItem('quiz_persistence');
                 currentQuestion = 0;
                 scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+                userAnswers = [];
                 
                 localStorage.setItem('quiz_persistence', JSON.stringify({
                     currentQuestion: 0,
                     scores: scores,
+                    userAnswers: userAnswers,
                     timestamp: Date.now()
                 }));
             } else {
@@ -1052,6 +1059,7 @@
                     const state = JSON.parse(savedState);
                     currentQuestion = state.currentQuestion;
                     scores = state.scores;
+                    userAnswers = state.userAnswers || [];
                 }
             }
             
@@ -1107,11 +1115,13 @@
 
             // Record Score
             scores[type]++;
+            userAnswers.push(type);
             
             // Save persistence state
             localStorage.setItem('quiz_persistence', JSON.stringify({
                 currentQuestion: currentQuestion + 1,
                 scores: scores,
+                userAnswers: userAnswers,
                 timestamp: Date.now()
             }));
 
@@ -1126,6 +1136,37 @@
             }, 400);
         }
 
+        function getRankedResults() {
+            return Object.keys(results)
+                .map((key) => {
+                    const weightedScore = userAnswers.reduce((total, answerType, index) => {
+                        if (answerType !== key) {
+                            return total;
+                        }
+
+                        return total + index + 1;
+                    }, 0);
+
+                    return {
+                        key,
+                        score: scores[key],
+                        weightedScore,
+                        lastAnswerIndex: userAnswers.lastIndexOf(key)
+                    };
+                })
+                .sort((left, right) => {
+                    if (right.score !== left.score) {
+                        return right.score - left.score;
+                    }
+
+                    if (right.weightedScore !== left.weightedScore) {
+                        return right.weightedScore - left.weightedScore;
+                    }
+
+                    return right.lastAnswerIndex - left.lastAnswerIndex;
+                });
+        }
+
         function showResults() {
             isQuizInProgress = false;
 
@@ -1133,16 +1174,9 @@
             quizHeader.classList.add('hidden');
             resultScreen.classList.remove('hidden');
             
-            // Calculate Winner
-            let maxScore = -1;
-            let winner = 'A';
-
-            for (const [key, value] of Object.entries(scores)) {
-                if (value > maxScore) {
-                    maxScore = value;
-                    winner = key;
-                }
-            }
+            // Calculate Winner with tie-breaking based on later answers.
+            const rankedResults = getRankedResults();
+            const winner = rankedResults[0].key;
 
             // Populate Data
             const resultData = results[winner];
@@ -1192,7 +1226,20 @@
             });
 
             // Set Roadmap Link
-            window.viewRoadmap = () => window.location.href = 'roadmap.html';
+            const primaryActionBtn = document.querySelector('#result-screen button');
+            if (primaryActionBtn && resultData.featured_career) {
+                primaryActionBtn.querySelector('span').textContent = `View ${resultData.featured_career.name} Roadmap`;
+            }
+
+            localStorage.setItem('quiz_last_result', JSON.stringify({
+                category: winner,
+                recommendedCareer: resultData.featured_career || resultData.career_links[0]
+            }));
+
+            window.viewRoadmap = () => {
+                const targetCareer = resultData.featured_career || resultData.career_links[0];
+                window.location.href = `career_roadmap.html?career=${targetCareer.slug}`;
+            };
 
             // Confetti Effect
             fireConfetti();
@@ -1205,6 +1252,7 @@
             localStorage.removeItem('quiz_persistence');
             currentQuestion = 0;
             scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+            userAnswers = [];
             resultScreen.classList.add('hidden');
             startScreen.classList.remove('hidden');
             startScreen.classList.add('fade-in');
