@@ -13,7 +13,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
 
   <!-- Icons -->
@@ -21,12 +21,14 @@
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+  
   <script>
     tailwind.config = {
       theme: {
         extend: {
           screens: {
             'xs': '475px',
+            '3xl': '1920px',
           },
           colors: {
             primary: {
@@ -38,18 +40,86 @@
               500: '#8f3eff',
               600: '#7520e6',
               700: '#5c15b8',
+              800: '#44118a',
+              900: '#2f0d5c',
             },
             secondary: {
-              500: '#ff6b4a',
-              600: '#ff4d1c',
+              50: '#fff0ed',
+              100: '#ffe0d9',
+              200: '#ffb9aa',
+              300: '#ff8f7a',
+              400: '#ff6b4a',
+              500: '#ff4d1c',
+              600: '#e63e0f',
+              700: '#b8300b',
+              800: '#8a2408',
+              900: '#5c1805',
             },
             tertiary: {
+              50: '#e6fffa',
+              100: '#ccfff5',
+              200: '#99ffeb',
+              300: '#66ffe0',
+              400: '#33ffd6',
               500: '#00c9a7',
               600: '#00b38f',
+              700: '#008c70',
+              800: '#006651',
+              900: '#004031',
             },
             accent: {
               500: '#ffb347',
               600: '#ff9f1c',
+            },
+            emerald: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+            },
+            rose: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              200: '#fecdd3',
+              300: '#fda4af',
+              400: '#fb7185',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+            },
+            blue: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            },
+            amber: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            purple: {
+              50: '#faf5ff',
+              100: '#f3e8ff',
+              200: '#e9d5ff',
+              300: '#d8b4fe',
+              400: '#c084fc',
+              500: '#a855f7',
+              600: '#9333ea',
+              700: '#7e22ce',
             }
           },
           animation: {
@@ -58,6 +128,8 @@
             'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
             'pulse-slow': 'pulse 3s ease-in-out infinite',
             'shimmer': 'shimmer 2s infinite',
+            'bounce-subtle': 'bounceSubtle 2s infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
           },
           keyframes: {
             fadeInUp: {
@@ -78,6 +150,14 @@
               '0%': { backgroundPosition: '-1000px 0' },
               '100%': { backgroundPosition: '1000px 0' },
             },
+            bounceSubtle: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-5px)' },
+            },
+            glow: {
+              '0%': { boxShadow: '0 0 5px rgba(143, 62, 255, 0.3)' },
+              '100%': { boxShadow: '0 0 20px rgba(143, 62, 255, 0.6)' },
+            },
           },
         }
       }
@@ -85,7 +165,7 @@
   </script>
 
   <style>
-    /* Critical CSS with new color palette */
+    /* ===== ENHANCED CSS ===== */
     :root {
       --primary-color: #8f3eff;
       --primary-dark: #7520e6;
@@ -94,15 +174,27 @@
       --accent-gradient: linear-gradient(135deg, #8f3eff, #ff6b4a, #00c9a7);
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #faf5ff 0%, #fff5f0 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
+      box-sizing: border-box;
     }
 
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: linear-gradient(135deg, #f8fafc 0%, #f5f0ff 100%);
+      min-height: 100vh;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Animated Background */
     .page-bg {
       background: radial-gradient(circle at top right, rgba(143, 62, 255, 0.1), transparent),
                   radial-gradient(circle at bottom left, rgba(255, 107, 74, 0.1), transparent),
@@ -111,96 +203,7 @@
       position: relative;
     }
 
-    /* Glassmorphism Card */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 10px 30px -5px rgba(143, 62, 255, 0.08);
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .glass-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px -10px rgba(143, 62, 255, 0.15);
-      border-color: rgba(143, 62, 255, 0.3);
-    }
-
-    /* Category Tabs */
-    .category-tab {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .category-tab.active {
-      background: linear-gradient(135deg, #8f3eff 0%, #7520e6 100%);
-      color: white;
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px -5px rgba(143, 62, 255, 0.3);
-    }
-
-    /* Premium Typography */
-    .section-title {
-      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      display: inline-block;
-      position: relative;
-    }
-
-    .badge-pill {
-        background: rgba(143, 62, 255, 0.1);
-        color: #8f3eff;
-        padding: 0.5rem 1.25rem;
-        border-radius: 9999px;
-        font-weight: 600;
-        font-size: 0.875rem;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        display: inline-block;
-        margin-bottom: 1.5rem;
-        border: 1px solid rgba(143, 62, 255, 0.2);
-    }
-
-    /* Improved Tabs */
-    .category-tab {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      border-radius: 1rem;
-    }
-    
-    .category-tab.active {
-      background: linear-gradient(135deg, #8f3eff 0%, #7520e6 100%);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px -5px rgba(143, 62, 255, 0.4);
-      border-color: transparent;
-    }
-
-    .category-tab:not(.active):hover {
-        background: white;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px -5px rgba(255, 107, 74, 0.3);
-    }
-
-    /* Animation delays */
-    .animation-delay-2000 {
-      animation-delay: 2s;
-    }
-
-    /* Hide scrollbar */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    /* Custom blob backgrounds */
+    /* Animated blobs */
     .blob {
       position: absolute;
       width: 300px;
@@ -232,8 +235,425 @@
       animation: blob 20s infinite alternate;
       opacity: 0.1;
     }
+
+    /* Glassmorphism Card */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -10px rgba(143, 62, 255, 0.15);
+      border-color: rgba(143, 62, 255, 0.3);
+    }
+
+    /* Category Tabs */
+    .category-tab {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      border-radius: 9999px;
+    }
     
-    /* Adjust main content padding for bottom navigation */
+    .category-tab.active {
+      background: linear-gradient(135deg, #8f3eff 0%, #7520e6 100%);
+      color: white;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 25px -5px rgba(143, 62, 255, 0.4);
+      border-color: transparent;
+    }
+
+    .category-tab:not(.active):hover {
+        background: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Premium Typography */
+    .section-title {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+      position: relative;
+    }
+
+    .badge-pill {
+        background: rgba(143, 62, 255, 0.1);
+        color: #8f3eff;
+        padding: 0.5rem 1.25rem;
+        border-radius: 9999px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(143, 62, 255, 0.2);
+    }
+
+    /* Career Card Styles */
+    .career-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 2.5rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 500px;
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .career-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(143, 62, 255, 0.15);
+      border-color: rgba(143, 62, 255, 0.3);
+    }
+
+    .career-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.5s;
+      pointer-events: none;
+    }
+
+    .career-card:hover::before {
+      opacity: 1;
+    }
+
+    .career-icon {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 1.25rem;
+      background: rgba(143, 62, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(143, 62, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      transition: all 0.5s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .career-card:hover .career-icon {
+      transform: scale(1.1) rotate(6deg);
+    }
+
+    .career-arrow {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 9999px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      transition: all 0.3s;
+    }
+
+    .career-card:hover .career-arrow {
+      background: #8f3eff;
+      color: white;
+      border-color: #8f3eff;
+    }
+
+    .career-arrow i {
+      transition: transform 0.3s;
+    }
+
+    .career-card:hover .career-arrow i {
+      transform: rotate(-45deg);
+    }
+
+    .career-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      transition: color 0.3s;
+    }
+
+    .career-card:hover .career-title {
+      color: #8f3eff;
+    }
+
+    .career-desc {
+      color: #64748b;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .career-details {
+      background: #f8fafc;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .career-card:hover .career-details {
+      border-color: rgba(143, 62, 255, 0.3);
+      background: white;
+    }
+
+    .career-details-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .career-details-label i {
+      color: #8f3eff;
+    }
+
+    .career-details-text {
+      font-size: 0.875rem;
+      color: #475569;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .skill-tag {
+      padding: 0.25rem 0.625rem;
+      border-radius: 0.5rem;
+      background: white;
+      border: 1px solid #e2e8f0;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #64748b;
+      transition: all 0.3s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .career-card:hover .skill-tag {
+      border-color: rgba(143, 62, 255, 0.3);
+      color: #8f3eff;
+    }
+
+    .view-roadmap-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #475569;
+      transition: all 0.3s;
+    }
+
+    .career-card:hover .view-roadmap-btn {
+      background: rgba(143, 62, 255, 0.1);
+      color: #8f3eff;
+      border-color: rgba(143, 62, 255, 0.3);
+    }
+
+    /* Feedback Card */
+    .feedback-card {
+      background: linear-gradient(135deg, #f8fafc, white);
+      border-radius: 2.5rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 500px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feedback-card:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .feedback-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      pointer-events: none;
+      background-image: radial-gradient(#64748b 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .feedback-icon {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 1.25rem;
+      background: white;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #fbbf24;
+      transition: all 0.5s;
+    }
+
+    .feedback-card:hover .feedback-icon {
+      transform: scale(1.1) rotate(12deg);
+      color: #f59e0b;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8f3eff; 
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7520e6; 
+    }
+
+    /* Hide scrollbar for category tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Animation delays */
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+    .animation-delay-3000 {
+      animation-delay: 3s;
+    }
+
+    /* Bottom Navigation Styles */
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    .active-nav div:first-of-type {
+      background: linear-gradient(135deg, #8f3eff, #ff6b4a) !important;
+    }
+
+    .active-nav i {
+      color: white !important;
+    }
+
+    .ripple-effect {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(143, 62, 255, 0.3);
+      transform: scale(0);
+      animation: ripple-animation 0.6s ease-out;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    @keyframes ripple-animation {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    #authBottomSheet {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(143, 62, 255, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 15px 5px rgba(143, 62, 255, 0.2);
+      }
+    }
+
+    .active-nav {
+      animation: pulse-glow 2s infinite;
+    }
+
+    a[href="quiz.html"] .w-12.h-12 {
+      box-shadow: 0 4px 15px rgba(143, 62, 255, 0.3);
+    }
+
+    a[href="quiz.html"]:hover .w-12.h-12 {
+      box-shadow: 0 8px 25px rgba(143, 62, 255, 0.4);
+    }
+
+    #authBottomSheet .w-12.h-1 {
+      transition: width 0.3s ease;
+    }
+
+    #authBottomSheet:hover .w-12.h-1 {
+      width: 3rem;
+      background: #8f3eff;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 380px) {
+      a span:not(.absolute) {
+        font-size: 8px;
+      }
+      
+      a i {
+        font-size: 1rem;
+      }
+      
+      a[href="quiz.html"] .w-12.h-12 {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+      
+      a[href="quiz.html"] i {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Touch-friendly hit areas */
+    a, button {
+      min-height: 44px;
+      min-width: 44px;
+      position: relative;
+    }
+
     main {
       padding-bottom: 80px;
     }
@@ -242,6 +662,10 @@
       main {
         padding-bottom: 70px;
       }
+    }
+
+    #menuButton {
+      display: none;
     }
   </style>
 </head>
@@ -255,8 +679,7 @@
     <div class="blob blob-3"></div>
   </div>
 
-  <!-- ===== BOTTOM NAVIGATION (serves as the main header/menu) ===== -->
-  <!-- Bottom Navigation Bar -->
+  <!-- ===== BOTTOM NAVIGATION ===== -->
   <nav class="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-md border-t border-slate-200/50 z-40 safe-bottom">
     <div class="container mx-auto px-2">
       <div class="flex items-center justify-around py-2">
@@ -347,7 +770,7 @@
     <div class="absolute inset-0 -z-10 pointer-events-none">
       <div class="absolute top-[-10%] left-[-5%] w-[40rem] h-[40rem] bg-primary-200/30 rounded-full blur-[100px] animate-blob"></div>
       <div class="absolute bottom-[-10%] right-[-5%] w-[35rem] h-[35rem] bg-secondary-200/30 rounded-full blur-[100px] animate-blob animation-delay-2000"></div>
-      <div class="absolute top-1/3 left-1/4 w-[25rem] h-[25rem] bg-tertiary-200/20 rounded-full blur-[100px] animate-blob animation-delay-2000"></div>
+      <div class="absolute top-1/3 left-1/4 w-[25rem] h-[25rem] bg-tertiary-200/20 rounded-full blur-[100px] animate-blob animation-delay-3000"></div>
       <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
     </div>
 
@@ -423,7 +846,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Software Developer Card -->
-                    <a href="career_roadmap.html?career=software-developer" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(143,62,255,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=software-developer" class="career-card group">
                         
                         <!-- Decorative Gradient Blob -->
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
@@ -431,142 +854,141 @@
 
                         <!-- Top Icon & Title -->
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-primary-50/80 backdrop-blur-sm border border-primary-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-code text-primary-500 filter drop-shadow-sm transform transition-transform group-hover:scale-110"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-code text-primary-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Software Developer</h4>
+                        <h4 class="career-title group-hover:text-primary-600">Software Developer</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Build the future with code. Learn programming, frameworks, and best practices to become a successful software developer.</p>
+                        <p class="career-desc">Build the future with code. Learn programming, frameworks, and best practices to become a successful software developer.</p>
                         
                         <!-- Details Section -->
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-primary-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-primary-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-primary-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">B.Tech/BE in CS/IT or equivalent. Master in-demand skills like web dev, mobile apps, or AI/ML.</p>
+                            <p class="career-details-text">B.Tech/BE in CS/IT or equivalent. Master in-demand skills like web dev, mobile apps, or AI/ML.</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <!-- Skills Tags -->
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">JavaScript</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">Python</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">React</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">JavaScript</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">Python</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">React</span>
                                 <span class="px-2 py-1 text-xs font-bold text-slate-400 flex items-center">+5</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Data Scientist Card -->
-                    <a href="career_roadmap.html?career=data-scientist" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(143,62,255,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=data-scientist" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary-400 to-primary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-primary-50/80 backdrop-blur-sm border border-primary-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-chart-line text-primary-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-chart-line text-primary-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Data Scientist</h4>
+                        <h4 class="career-title group-hover:text-primary-600">Data Scientist</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Turn data into insights. Learn statistics, machine learning, and data visualization to drive business decisions.</p>
+                        <p class="career-desc">Turn data into insights. Learn statistics, machine learning, and data visualization to drive business decisions.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-primary-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-primary-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-primary-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">B.Tech/M.Tech in CS, Statistics, or Mathematics. Master Python, R, SQL, and ML frameworks.</p>
+                            <p class="career-details-text">B.Tech/M.Tech in CS, Statistics, or Mathematics. Master Python, R, SQL, and ML frameworks.</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">Python</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">SQL</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">ML</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">Python</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">SQL</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">ML</span>
                                 <span class="px-2 py-1 text-xs font-bold text-slate-400 flex items-center">+4</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- AI/ML Engineer Card -->
-                    <a href="career_roadmap.html?career=ai-engineer" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(143,62,255,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=ai-ml-engineer" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary-400 to-primary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-primary-50/80 backdrop-blur-sm border border-primary-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-robot text-primary-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-robot text-primary-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">AI/ML Engineer</h4>
+                        <h4 class="career-title group-hover:text-primary-600">AI/ML Engineer</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Build intelligent systems. Master deep learning, neural networks, and cutting-edge AI technologies.</p>
+                        <p class="career-desc">Build intelligent systems. Master deep learning, neural networks, and cutting-edge AI technologies.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-primary-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-primary-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-primary-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">B.Tech/M.Tech in CS/AI/ML. Specialize in deep learning, NLP, computer vision, and LLMs.</p>
+                            <p class="career-details-text">B.Tech/M.Tech in CS/AI/ML. Specialize in deep learning, NLP, computer vision, and LLMs.</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">Python</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">TensorFlow</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">PyTorch</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">Python</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">TensorFlow</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">PyTorch</span>
                                 <span class="px-2 py-1 text-xs font-bold text-slate-400 flex items-center">+3</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
                     
                     <!-- Feedback/Suggestion Card for Engineering -->
-                    <div class="relative bg-gradient-to-br from-slate-50 to-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 group ring-1 ring-slate-900/5 overflow-hidden">
+                    <div class="feedback-card group">
                         
-                        <!-- Background Pattern -->
-                        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#64748b 1px, transparent 1px); background-size: 24px 24px;"></div>
+                        <div class="feedback-pattern"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-white border border-slate-200 flex items-center justify-center text-3xl text-amber-400 group-hover:text-amber-500 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-sm">
+                            <div class="feedback-icon group-hover:scale-110 group-hover:rotate-12">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
                         </div>
 
                         <h4 class="text-2xl font-bold text-slate-900 mb-2 relative z-10">Have a Suggestion?</h4>
                         <p class="text-slate-500 text-base mb-8 leading-relaxed font-medium relative z-10">
-                            Missing a career in <span class="font-bold text-primary-600">Engineering & Tech</span>? Let us know!
+                            Missing a career in <span class="font-bold text-primary-600">Engineering & Technology</span>? Let us know!
                         </p>
 
-                        <form class="mt-auto space-y-4 relative z-10" onsubmit="handleSuggestion(event, 'Engineering & Tech')">
+                        <form class="mt-auto space-y-4 relative z-10" onsubmit="handleSuggestion(event, 'Engineering & Technology')">
                             <div class="relative group/input">
                                 <textarea 
                                     required
@@ -596,133 +1018,133 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Doctor Card -->
-                    <a href="career_roadmap.html?career=doctor" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(255,107,74,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=doctor" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-secondary-50 to-secondary-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-secondary-400 to-secondary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-secondary-50/80 backdrop-blur-sm border border-secondary-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-stethoscope text-secondary-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-stethoscope text-secondary-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-secondary-600 group-hover:text-white group-hover:border-secondary-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-secondary-600 group-hover:text-white group-hover:border-secondary-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-secondary-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Doctor</h4>
+                        <h4 class="career-title group-hover:text-secondary-600">Doctor</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Complete guide to becoming a doctor in India - from NEET preparation to choosing the right specialization.</p>
+                        <p class="career-desc">Complete guide to becoming a doctor in India - from NEET preparation to choosing the right specialization.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-secondary-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-secondary-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-secondary-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">Class 11-12: PCB + NEET → UG: MBBS (5.5 years) → PG: MD/MS Specialization</p>
+                            <p class="career-details-text">Class 11-12: PCB + NEET → UG: MBBS (5.5 years) → PG: MD/MS Specialization</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-secondary-200 group-hover:text-secondary-600 transition-colors shadow-sm">NEET UG</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-secondary-200 group-hover:text-secondary-600 transition-colors shadow-sm">MBBS</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-secondary-200 group-hover:text-secondary-600 transition-colors shadow-sm">MD/MS</span>
+                                <span class="skill-tag group-hover:border-secondary-200 group-hover:text-secondary-600">NEET UG</span>
+                                <span class="skill-tag group-hover:border-secondary-200 group-hover:text-secondary-600">MBBS</span>
+                                <span class="skill-tag group-hover:border-secondary-200 group-hover:text-secondary-600">MD/MS</span>
                                 <span class="px-2 py-1 text-xs font-bold text-slate-400 flex items-center">+2</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-secondary-50 group-hover:text-secondary-700 group-hover:border-secondary-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-secondary-50 group-hover:text-secondary-700 group-hover:border-secondary-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Nurse Card -->
-                    <a href="career_roadmap.html?career=nurse" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(255,107,74,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=nurse" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-secondary-50 to-secondary-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-secondary-400 to-secondary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-secondary-50/80 backdrop-blur-sm border border-secondary-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-user-nurse text-secondary-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-user-nurse text-secondary-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-secondary-600 group-hover:text-white group-hover:border-secondary-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-secondary-600 group-hover:text-white group-hover:border-secondary-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-secondary-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Nurse</h4>
+                        <h4 class="career-title group-hover:text-secondary-600">Nurse</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Guide to becoming a registered nurse in India - from GNM to B.Sc Nursing and career progression.</p>
+                        <p class="career-desc">Guide to becoming a registered nurse in India - from GNM to B.Sc Nursing and career progression.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-secondary-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-secondary-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-secondary-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">After 12th: B.Sc Nursing (4 years) or GNM (3.5 years) → State Nursing Council Registration</p>
+                            <p class="career-details-text">After 12th: B.Sc Nursing (4 years) or GNM (3.5 years) → State Nursing Council Registration</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-secondary-200 group-hover:text-secondary-600 transition-colors shadow-sm">B.Sc Nursing</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-secondary-200 group-hover:text-secondary-600 transition-colors shadow-sm">GNM</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-secondary-200 group-hover:text-secondary-600 transition-colors shadow-sm">INC</span>
+                                <span class="skill-tag group-hover:border-secondary-200 group-hover:text-secondary-600">B.Sc Nursing</span>
+                                <span class="skill-tag group-hover:border-secondary-200 group-hover:text-secondary-600">GNM</span>
+                                <span class="skill-tag group-hover:border-secondary-200 group-hover:text-secondary-600">INC</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-secondary-50 group-hover:text-secondary-700 group-hover:border-secondary-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-secondary-50 group-hover:text-secondary-700 group-hover:border-secondary-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Pharmacist Card -->
-                    <a href="career_roadmap.html?career=pharmacist" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(255,107,74,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=pharmacist" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-secondary-50 to-secondary-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-secondary-400 to-secondary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-secondary-50/80 backdrop-blur-sm border border-secondary-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-pills text-secondary-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-pills text-secondary-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-secondary-600 group-hover:text-white group-hover:border-secondary-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-secondary-600 group-hover:text-white group-hover:border-secondary-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-secondary-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Pharmacist</h4>
+                        <h4 class="career-title group-hover:text-secondary-600">Pharmacist</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Complete guide to pharmacy careers - from D.Pharm to B.Pharm and specialization in pharmaceutical sciences.</p>
+                        <p class="career-desc">Complete guide to pharmacy careers - from D.Pharm to B.Pharm and specialization in pharmaceutical sciences.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-secondary-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-secondary-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-secondary-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">After 12th: D.Pharm (2 years) or B.Pharm (4 years) → Pharmacy Council Registration</p>
+                            <p class="career-details-text">After 12th: D.Pharm (2 years) or B.Pharm (4 years) → Pharmacy Council Registration</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-secondary-200 group-hover:text-secondary-600 transition-colors shadow-sm">D.Pharm</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-secondary-200 group-hover:text-secondary-600 transition-colors shadow-sm">B.Pharm</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-secondary-200 group-hover:text-secondary-600 transition-colors shadow-sm">PCI</span>
+                                <span class="skill-tag group-hover:border-secondary-200 group-hover:text-secondary-600">D.Pharm</span>
+                                <span class="skill-tag group-hover:border-secondary-200 group-hover:text-secondary-600">B.Pharm</span>
+                                <span class="skill-tag group-hover:border-secondary-200 group-hover:text-secondary-600">PCI</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-secondary-50 group-hover:text-secondary-700 group-hover:border-secondary-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-secondary-50 group-hover:text-secondary-700 group-hover:border-secondary-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
                     
                     <!-- Feedback/Suggestion Card for Medical -->
-                    <div class="relative bg-gradient-to-br from-slate-50 to-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 group ring-1 ring-slate-900/5 overflow-hidden">
+                    <div class="feedback-card group">
                         
-                        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#64748b 1px, transparent 1px); background-size: 24px 24px;"></div>
+                        <div class="feedback-pattern"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-white border border-slate-200 flex items-center justify-center text-3xl text-amber-400 group-hover:text-amber-500 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-sm">
+                            <div class="feedback-icon group-hover:scale-110 group-hover:rotate-12">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
                         </div>
@@ -762,133 +1184,133 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Chartered Accountant Card -->
-                    <a href="career_roadmap.html?career=chartered-accountant" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,201,167,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=chartered-accountant" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-tertiary-50 to-tertiary-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary-400 to-tertiary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-tertiary-50/80 backdrop-blur-sm border border-tertiary-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-calculator text-tertiary-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-calculator text-tertiary-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-tertiary-600 group-hover:text-white group-hover:border-tertiary-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-tertiary-600 group-hover:text-white group-hover:border-tertiary-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-tertiary-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Chartered Accountant</h4>
+                        <h4 class="career-title group-hover:text-tertiary-600">Chartered Accountant</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Complete CA roadmap: Foundation, Intermediate, Articleship, and Final - with expert tips for each level.</p>
+                        <p class="career-desc">Complete CA roadmap: Foundation, Intermediate, Articleship, and Final - with expert tips for each level.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-tertiary-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-tertiary-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-tertiary-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">CA Foundation (4 months) → CA Intermediate (8 months) → Articleship (3 years) → CA Final</p>
+                            <p class="career-details-text">CA Foundation (4 months) → CA Intermediate (8 months) → Articleship (3 years) → CA Final</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-tertiary-200 group-hover:text-tertiary-600 transition-colors shadow-sm">Foundation</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-tertiary-200 group-hover:text-tertiary-600 transition-colors shadow-sm">Intermediate</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-tertiary-200 group-hover:text-tertiary-600 transition-colors shadow-sm">Articleship</span>
+                                <span class="skill-tag group-hover:border-tertiary-200 group-hover:text-tertiary-600">Foundation</span>
+                                <span class="skill-tag group-hover:border-tertiary-200 group-hover:text-tertiary-600">Intermediate</span>
+                                <span class="skill-tag group-hover:border-tertiary-200 group-hover:text-tertiary-600">Articleship</span>
                                 <span class="px-2 py-1 text-xs font-bold text-slate-400 flex items-center">+2</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-tertiary-50 group-hover:text-tertiary-700 group-hover:border-tertiary-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-tertiary-50 group-hover:text-tertiary-700 group-hover:border-tertiary-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Company Secretary Card -->
-                    <a href="career_roadmap.html?career=company-secretary" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,201,167,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=company-secretary" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-tertiary-50 to-tertiary-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary-400 to-tertiary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-tertiary-50/80 backdrop-blur-sm border border-tertiary-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-file-signature text-tertiary-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-file-signature text-tertiary-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-tertiary-600 group-hover:text-white group-hover:border-tertiary-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-tertiary-600 group-hover:text-white group-hover:border-tertiary-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-tertiary-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Company Secretary</h4>
+                        <h4 class="career-title group-hover:text-tertiary-600">Company Secretary</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Complete guide to CS - from CSEET to Executive and Professional levels with training and articleship.</p>
+                        <p class="career-desc">Complete guide to CS - from CSEET to Executive and Professional levels with training and articleship.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-tertiary-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-tertiary-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-tertiary-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">CSEET → CS Executive → CS Professional → Training (15 months) → Membership</p>
+                            <p class="career-details-text">CSEET → CS Executive → CS Professional → Training (15 months) → Membership</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-tertiary-200 group-hover:text-tertiary-600 transition-colors shadow-sm">CSEET</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-tertiary-200 group-hover:text-tertiary-600 transition-colors shadow-sm">Executive</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-tertiary-200 group-hover:text-tertiary-600 transition-colors shadow-sm">Professional</span>
+                                <span class="skill-tag group-hover:border-tertiary-200 group-hover:text-tertiary-600">CSEET</span>
+                                <span class="skill-tag group-hover:border-tertiary-200 group-hover:text-tertiary-600">Executive</span>
+                                <span class="skill-tag group-hover:border-tertiary-200 group-hover:text-tertiary-600">Professional</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-tertiary-50 group-hover:text-tertiary-700 group-hover:border-tertiary-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-tertiary-50 group-hover:text-tertiary-700 group-hover:border-tertiary-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Cost Accountant Card -->
-                    <a href="career_roadmap.html?career=cost-accountant" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,201,167,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=cost-accountant" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-tertiary-50 to-tertiary-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary-400 to-tertiary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-tertiary-50/80 backdrop-blur-sm border border-tertiary-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-coins text-tertiary-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-coins text-tertiary-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-tertiary-600 group-hover:text-white group-hover:border-tertiary-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-tertiary-600 group-hover:text-white group-hover:border-tertiary-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-tertiary-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Cost Accountant</h4>
+                        <h4 class="career-title group-hover:text-tertiary-600">Cost Accountant</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">CMA USA/India roadmap - from Foundation to Final with practical training and certification details.</p>
+                        <p class="career-desc">CMA USA/India roadmap - from Foundation to Final with practical training and certification details.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-tertiary-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-tertiary-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-tertiary-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">CMA Foundation → CMA Intermediate → CMA Final → Practical Training (3 years)</p>
+                            <p class="career-details-text">CMA Foundation → CMA Intermediate → CMA Final → Practical Training (3 years)</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-tertiary-200 group-hover:text-tertiary-600 transition-colors shadow-sm">Foundation</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-tertiary-200 group-hover:text-tertiary-600 transition-colors shadow-sm">Intermediate</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-tertiary-200 group-hover:text-tertiary-600 transition-colors shadow-sm">Final</span>
+                                <span class="skill-tag group-hover:border-tertiary-200 group-hover:text-tertiary-600">Foundation</span>
+                                <span class="skill-tag group-hover:border-tertiary-200 group-hover:text-tertiary-600">Intermediate</span>
+                                <span class="skill-tag group-hover:border-tertiary-200 group-hover:text-tertiary-600">Final</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-tertiary-50 group-hover:text-tertiary-700 group-hover:border-tertiary-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-tertiary-50 group-hover:text-tertiary-700 group-hover:border-tertiary-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
                     
                     <!-- Feedback/Suggestion Card for Commerce -->
-                    <div class="relative bg-gradient-to-br from-slate-50 to-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 group ring-1 ring-slate-900/5 overflow-hidden">
+                    <div class="feedback-card group">
                         
-                        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#64748b 1px, transparent 1px); background-size: 24px 24px;"></div>
+                        <div class="feedback-pattern"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-white border border-slate-200 flex items-center justify-center text-3xl text-amber-400 group-hover:text-amber-500 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-sm">
+                            <div class="feedback-icon group-hover:scale-110 group-hover:rotate-12">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
                         </div>
@@ -928,133 +1350,133 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Graphic Designer Card -->
-                    <a href="career_roadmap.html?career=graphic-designer" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(255,179,71,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=graphic-designer" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-amber-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-amber-50/80 backdrop-blur-sm border border-amber-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-paint-brush text-amber-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-paint-brush text-amber-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-amber-600 group-hover:text-white group-hover:border-amber-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-amber-600 group-hover:text-white group-hover:border-amber-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-amber-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Graphic Designer</h4>
+                        <h4 class="career-title group-hover:text-amber-600">Graphic Designer</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Create visual concepts that inspire. Learn design principles, software, and build a stunning portfolio.</p>
+                        <p class="career-desc">Create visual concepts that inspire. Learn design principles, software, and build a stunning portfolio.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-amber-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-amber-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-amber-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">B.Des/BFA or certification. Master Adobe Creative Suite, UI/UX, and design fundamentals.</p>
+                            <p class="career-details-text">B.Des/BFA or certification. Master Adobe Creative Suite, UI/UX, and design fundamentals.</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-amber-200 group-hover:text-amber-600 transition-colors shadow-sm">Photoshop</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-amber-200 group-hover:text-amber-600 transition-colors shadow-sm">Illustrator</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-amber-200 group-hover:text-amber-600 transition-colors shadow-sm">Figma</span>
+                                <span class="skill-tag group-hover:border-amber-200 group-hover:text-amber-600">Photoshop</span>
+                                <span class="skill-tag group-hover:border-amber-200 group-hover:text-amber-600">Illustrator</span>
+                                <span class="skill-tag group-hover:border-amber-200 group-hover:text-amber-600">Figma</span>
                                 <span class="px-2 py-1 text-xs font-bold text-slate-400 flex items-center">+3</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-amber-50 group-hover:text-amber-700 group-hover:border-amber-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-amber-50 group-hover:text-amber-700 group-hover:border-amber-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Journalist Card -->
-                    <a href="career_roadmap.html?career=journalist" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(255,179,71,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=journalist" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-amber-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-amber-50/80 backdrop-blur-sm border border-amber-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-pen-fancy text-amber-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-pen-fancy text-amber-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-amber-600 group-hover:text-white group-hover:border-amber-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-amber-600 group-hover:text-white group-hover:border-amber-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-amber-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Journalist</h4>
+                        <h4 class="career-title group-hover:text-amber-600">Journalist</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Tell stories that matter. Learn reporting, writing, and multimedia skills for print, broadcast, and digital media.</p>
+                        <p class="career-desc">Tell stories that matter. Learn reporting, writing, and multimedia skills for print, broadcast, and digital media.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-amber-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-amber-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-amber-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">BJMC/BA Journalism (3 years) or MJMC. Specialize in print, broadcast, or digital journalism.</p>
+                            <p class="career-details-text">BJMC/BA Journalism (3 years) or MJMC. Specialize in print, broadcast, or digital journalism.</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-amber-200 group-hover:text-amber-600 transition-colors shadow-sm">Writing</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-amber-200 group-hover:text-amber-600 transition-colors shadow-sm">Reporting</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-amber-200 group-hover:text-amber-600 transition-colors shadow-sm">Editing</span>
+                                <span class="skill-tag group-hover:border-amber-200 group-hover:text-amber-600">Writing</span>
+                                <span class="skill-tag group-hover:border-amber-200 group-hover:text-amber-600">Reporting</span>
+                                <span class="skill-tag group-hover:border-amber-200 group-hover:text-amber-600">Editing</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-amber-50 group-hover:text-amber-700 group-hover:border-amber-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-amber-50 group-hover:text-amber-700 group-hover:border-amber-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Psychologist Card -->
-                    <a href="career_roadmap.html?career=psychologist" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(255,179,71,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=psychologist" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-amber-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-amber-50/80 backdrop-blur-sm border border-amber-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-brain text-amber-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-brain text-amber-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-amber-600 group-hover:text-white group-hover:border-amber-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-amber-600 group-hover:text-white group-hover:border-amber-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-amber-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Psychologist</h4>
+                        <h4 class="career-title group-hover:text-amber-600">Psychologist</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Understand human behavior. Path to becoming a clinical, counseling, or organizational psychologist.</p>
+                        <p class="career-desc">Understand human behavior. Path to becoming a clinical, counseling, or organizational psychologist.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-amber-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-amber-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-amber-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">BA/B.Sc Psychology (3 years) → MA/M.Sc (2 years) → M.Phil/PhD for clinical practice</p>
+                            <p class="career-details-text">BA/B.Sc Psychology (3 years) → MA/M.Sc (2 years) → M.Phil/PhD for clinical practice</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-amber-200 group-hover:text-amber-600 transition-colors shadow-sm">Clinical</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-amber-200 group-hover:text-amber-600 transition-colors shadow-sm">Counseling</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-amber-200 group-hover:text-amber-600 transition-colors shadow-sm">RCI</span>
+                                <span class="skill-tag group-hover:border-amber-200 group-hover:text-amber-600">Clinical</span>
+                                <span class="skill-tag group-hover:border-amber-200 group-hover:text-amber-600">Counseling</span>
+                                <span class="skill-tag group-hover:border-amber-200 group-hover:text-amber-600">RCI</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-amber-50 group-hover:text-amber-700 group-hover:border-amber-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-amber-50 group-hover:text-amber-700 group-hover:border-amber-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
                     
                     <!-- Feedback/Suggestion Card for Arts -->
-                    <div class="relative bg-gradient-to-br from-slate-50 to-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 group ring-1 ring-slate-900/5 overflow-hidden">
+                    <div class="feedback-card group">
                         
-                        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#64748b 1px, transparent 1px); background-size: 24px 24px;"></div>
+                        <div class="feedback-pattern"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-white border border-slate-200 flex items-center justify-center text-3xl text-amber-400 group-hover:text-amber-500 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-sm">
+                            <div class="feedback-icon group-hover:scale-110 group-hover:rotate-12">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
                         </div>
@@ -1094,134 +1516,134 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Civil Servant Card -->
-                    <a href="career_roadmap.html?career=civil-servant" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(143,62,255,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=civil-servant" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary-400 to-primary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-primary-50/80 backdrop-blur-sm border border-primary-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-landmark text-primary-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-landmark text-primary-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Civil Servant</h4>
+                        <h4 class="career-title group-hover:text-primary-600">Civil Servant</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Complete roadmap to crack UPSC and become an IAS, IPS, or IFS officer. Expert strategies and resources.</p>
+                        <p class="career-desc">Complete roadmap to crack UPSC and become an IAS, IPS, or IFS officer. Expert strategies and resources.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-primary-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-primary-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-primary-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">Graduation (Any Discipline) → UPSC CSE: Prelims → Mains → Interview → Training</p>
+                            <p class="career-details-text">Graduation (Any Discipline) → UPSC CSE: Prelims → Mains → Interview → Training</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">UPSC</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">Prelims</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">Mains</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">UPSC</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">Prelims</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">Mains</span>
                                 <span class="px-2 py-1 text-xs font-bold text-slate-400 flex items-center">+2</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Banking Officer Card -->
-                    <a href="career_roadmap.html?career=banking-officer" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(143,62,255,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=bank-officer" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary-400 to-primary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-primary-50/80 backdrop-blur-sm border border-primary-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-university text-primary-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-university text-primary-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Banking Officer</h4>
+                        <h4 class="career-title group-hover:text-primary-600">Banking Officer</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Guide to banking exams - IBPS PO, SBI PO, RBI Grade B. Complete preparation strategy and resources.</p>
+                        <p class="career-desc">Guide to banking exams - IBPS PO, SBI PO, RBI Grade B. Complete preparation strategy and resources.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-primary-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-primary-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-primary-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">Graduation → Bank Exams (IBPS/SBI/RBI) → Prelims → Mains → Interview → Training</p>
+                            <p class="career-details-text">Graduation → Bank Exams (IBPS/SBI/RBI) → Prelims → Mains → Interview → Training</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">IBPS PO</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">SBI PO</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">RBI Grade B</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">IBPS PO</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">SBI PO</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">RBI Grade B</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Defence Services Card -->
-                    <a href="career_roadmap.html?career=defence" class="group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(143,62,255,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden ring-1 ring-slate-900/5">
+                    <a href="career_roadmap.html?career=defence" class="career-card group">
                         
                         <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary-400 to-primary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-primary-50/80 backdrop-blur-sm border border-primary-100/50 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm">
-                                <i class="fas fa-shield-alt text-primary-500 filter drop-shadow-sm"></i>
+                            <div class="career-icon group-hover:scale-110 group-hover:rotate-6">
+                                <i class="fas fa-shield-alt text-primary-500"></i>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600 transition-all duration-300 shadow-sm">
+                            <div class="career-arrow group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600">
                                 <i class="fas fa-arrow-right text-lg transform group-hover:-rotate-45 transition-transform duration-300"></i>
                             </div>
                         </div>
 
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary-600 transition-colors duration-300 leading-tight tracking-tight pr-4 relative z-10">Defence Services</h4>
+                        <h4 class="career-title group-hover:text-primary-600">Defence Services</h4>
                         
-                        <p class="text-slate-500 text-base mb-6 leading-relaxed line-clamp-3 font-medium relative z-10 group-hover:text-slate-600 transition-colors">Complete guide to join Indian Armed Forces - NDA, CDS, AFCAT, and other entries for Army, Navy, Air Force.</p>
+                        <p class="career-desc">Complete guide to join Indian Armed Forces - NDA, CDS, AFCAT, and other entries for Army, Navy, Air Force.</p>
                         
-                        <div class="mb-6 relative z-10 bg-slate-50 rounded-xl p-4 border border-slate-100 group-hover:border-primary-100 transition-colors">
-                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <div class="career-details group-hover:border-primary-300 group-hover:bg-white">
+                            <div class="career-details-label">
                                 <i class="fas fa-graduation-cap text-primary-400"></i> 
                                 <span>Path Overview</span>
                             </div>
-                            <p class="text-sm text-slate-600 font-medium leading-relaxed">After 12th: NDA → After Graduation: CDS/AFCAT/TGC → SSB Interview → Training</p>
+                            <p class="career-details-text">After 12th: NDA → After Graduation: CDS/AFCAT/TGC → SSB Interview → Training</p>
                         </div>
 
                         <div class="mt-auto relative z-10">
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">NDA</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">CDS</span>
-                                <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-500 group-hover:border-primary-200 group-hover:text-primary-600 transition-colors shadow-sm">AFCAT</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">NDA</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">CDS</span>
+                                <span class="skill-tag group-hover:border-primary-200 group-hover:text-primary-600">AFCAT</span>
                                 <span class="px-2 py-1 text-xs font-bold text-slate-400 flex items-center">+3</span>
                             </div>
 
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm font-bold text-slate-600 group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-200 transition-all duration-300">
+                            <div class="view-roadmap-btn group-hover:bg-primary-50 group-hover:text-primary-700 group-hover:border-primary-200">
                                 <span>View Roadmap</span>
                             </div>
                         </div>
                     </a>
                     
                     <!-- Feedback/Suggestion Card for Government -->
-                    <div class="relative bg-gradient-to-br from-slate-50 to-white rounded-[2.5rem] p-8 flex flex-col h-full min-h-[500px] border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 group ring-1 ring-slate-900/5 overflow-hidden">
+                    <div class="feedback-card group">
                         
-                        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#64748b 1px, transparent 1px); background-size: 24px 24px;"></div>
+                        <div class="feedback-pattern"></div>
 
                         <div class="flex items-start justify-between mb-8 relative z-10">
-                            <div class="w-20 h-20 rounded-[1.25rem] bg-white border border-slate-200 flex items-center justify-center text-3xl text-amber-400 group-hover:text-amber-500 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-sm">
+                            <div class="feedback-icon group-hover:scale-110 group-hover:rotate-12">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
                         </div>
@@ -1254,7 +1676,6 @@
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <!-- Footer -->
   <footer class="bg-slate-900 text-white pt-20 pb-10">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
@@ -1285,6 +1706,8 @@
             <li><a href="career_roadmap.html?career=software-developer" class="hover:text-primary-400 transition-colors">Software Developer</a></li>
             <li><a href="career_roadmap.html?career=civil-servant" class="hover:text-primary-400 transition-colors">Civil Servant</a></li>
             <li><a href="career_roadmap.html?career=chartered-accountant" class="hover:text-primary-400 transition-colors">Chartered Accountant</a></li>
+            <li><a href="career_roadmap.html?career=nurse" class="hover:text-primary-400 transition-colors">Nurse</a></li>
+            <li><a href="career_roadmap.html?career=ai-ml-engineer" class="hover:text-primary-400 transition-colors">AI/ML Engineer</a></li>
           </ul>
         </div>
         <div>
@@ -1302,7 +1725,7 @@
     </div>
   </footer>
 
-  <!-- Back to Top Button (adjusted bottom to not overlap nav) -->
+  <!-- Back to Top Button -->
   <button id="backToTop" class="fixed bottom-24 right-6 w-12 h-12 bg-white text-slate-900 rounded-full shadow-lg border border-slate-200 flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-slate-50 hover:scale-110 z-40 group" aria-label="Back to Top">
     <i class="fas fa-arrow-up text-lg group-hover:-translate-y-1 transition-transform"></i>
   </button>
@@ -1387,15 +1810,16 @@
         closeAuthSheet?.addEventListener('click', hideAuthSheet);
 
         // Add ripple effect to nav items
-        const navItems = document.querySelectorAll('.bottom-nav-item');
+        const navItems = document.querySelectorAll('.flex.items-center.justify-around a');
         navItems.forEach(item => {
           item.addEventListener('touchstart', function(e) {
             const ripple = document.createElement('span');
             ripple.classList.add('ripple-effect');
             this.appendChild(ripple);
             
-            const x = e.touches[0].clientX - e.target.offsetLeft;
-            const y = e.touches[0].clientY - e.target.offsetTop;
+            const rect = this.getBoundingClientRect();
+            const x = e.touches[0].clientX - rect.left;
+            const y = e.touches[0].clientY - rect.top;
             
             ripple.style.left = `${x}px`;
             ripple.style.top = `${y}px`;
@@ -1404,6 +1828,36 @@
               ripple.remove();
             }, 600);
           });
+        });
+
+        // Newsletter Form Submission
+        const newsletterForm = document.getElementById('newsletterForm');
+        newsletterForm?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+
+            // Show loading state
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            // Show success message
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+            submitBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+
+            // Reset form
+            e.target.reset();
+
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                submitBtn.disabled = false;
+            }, 3000);
         });
     });
 
@@ -1436,157 +1890,6 @@
             }, 2000);
         }, 1500);
     }
-
-    // Newsletter Form Submission
-    const newsletterForm = document.getElementById('newsletterForm');
-    newsletterForm?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = e.target.querySelector('input[type="email"]').value;
-
-        // Show loading state
-        const submitBtn = e.target.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-        submitBtn.disabled = true;
-
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-
-        // Show success message
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
-        submitBtn.classList.add('bg-green-500', 'hover:bg-green-600');
-
-        // Reset form
-        e.target.reset();
-
-        // Reset button after 3 seconds
-        setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
-            submitBtn.disabled = false;
-        }, 3000);
-    });
   </script>
-
-  <!-- Additional CSS for bottom navigation -->
-  <style>
-    /* Safe area for notched phones */
-    .safe-bottom {
-      padding-bottom: env(safe-area-inset-bottom, 0px);
-    }
-
-    /* Active navigation state */
-    .active-nav div:first-of-type {
-      background: linear-gradient(135deg, #8f3eff, #ff6b4a) !important;
-    }
-
-    .active-nav i {
-      color: white !important;
-    }
-
-    /* Ripple effect for touch */
-    .ripple-effect {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(143, 62, 255, 0.3);
-      transform: scale(0);
-      animation: ripple-animation 0.6s ease-out;
-      pointer-events: none;
-      z-index: 10;
-    }
-
-    @keyframes ripple-animation {
-      to {
-        transform: scale(4);
-        opacity: 0;
-      }
-    }
-
-    /* Bottom sheet animation */
-    #authBottomSheet {
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Active page indicator pulse */
-    @keyframes pulse-glow {
-      0%, 100% {
-        box-shadow: 0 0 0 0 rgba(143, 62, 255, 0.3);
-      }
-      50% {
-        box-shadow: 0 0 15px 5px rgba(143, 62, 255, 0.2);
-      }
-    }
-
-    .active-nav {
-      animation: pulse-glow 2s infinite;
-    }
-
-    /* Center quiz button special styling */
-    a[href="quiz.html"] .w-12.h-12 {
-      box-shadow: 0 4px 15px rgba(143, 62, 255, 0.3);
-    }
-
-    a[href="quiz.html"]:hover .w-12.h-12 {
-      box-shadow: 0 8px 25px rgba(143, 62, 255, 0.4);
-    }
-
-    /* Bottom sheet drag handle animation */
-    #authBottomSheet .w-12.h-1 {
-      transition: width 0.3s ease;
-    }
-
-    #authBottomSheet:hover .w-12.h-1 {
-      width: 3rem;
-      background: #8f3eff;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 380px) {
-      a span:not(.absolute) {
-        font-size: 8px;
-      }
-      
-      a i {
-        font-size: 1rem;
-      }
-      
-      a[href="quiz.html"] .w-12.h-12 {
-        width: 2.5rem;
-        height: 2.5rem;
-      }
-      
-      a[href="quiz.html"] i {
-        font-size: 0.9rem;
-      }
-    }
-
-    /* Touch-friendly hit areas */
-    a {
-      min-height: 44px;
-      min-width: 44px;
-      position: relative;
-    }
-
-    /* Adjust main content padding for bottom nav */
-    main, .page-bg {
-      padding-bottom: 80px;
-    }
-
-    @media (max-width: 640px) {
-      main, .page-bg {
-        padding-bottom: 70px;
-      }
-    }
-
-    /* Hide any old mobile menu button since we're using bottom nav */
-    #menuButton {
-      display: none;
-    }
-
-    /* Adjust mobile menu to work with bottom nav */
-    #mobileMenu {
-      padding-bottom: 80px;
-    }
-  </style>
 </body>
 </html>
