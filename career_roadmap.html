@@ -2013,10 +2013,20 @@
             }
         };
 
+        const careerSlugAliases = {
+            'company-secretary': 'lawyer',
+            'cost-accountant': 'accountant',
+            'data-scientist': 'civil-engineer',
+            defence: 'police-army',
+            journalist: 'chef',
+            psychologist: 'photographer'
+        };
+
         // Helper function to get URL parameter
         function getUrlParameter(name) {
             const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name) || 'doctor'; // Default to doctor
+            const requestedSlug = urlParams.get(name) || 'doctor';
+            return careerSlugAliases[requestedSlug] || requestedSlug;
         }
 
         // Function to get college URL (placeholder)
