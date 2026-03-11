@@ -24,7 +24,12 @@
                     colors: {
                         primary: { 50: '#f5f0ff', 100: '#ede0ff', 200: '#d9baff', 300: '#c28fff', 400: '#a864ff', 500: '#8f3eff', 600: '#7520e6', 700: '#5c15b8', 800: '#44118a', 900: '#2f0d5c' },
                         secondary: { 50: '#fff0ed', 100: '#ffe0d9', 200: '#ffb9aa', 300: '#ff8f7a', 400: '#ff6b4a', 500: '#ff4d1c', 600: '#e63e0f', 700: '#b8300b', 800: '#8a2408', 900: '#5c1805' },
-                        tertiary: { 500: '#00c9a7', 600: '#00b38f' }
+                        tertiary: { 500: '#00c9a7', 600: '#00b38f' },
+                        emerald: { 50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7', 400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857' },
+                        rose: { 50: '#fff1f2', 100: '#ffe4e6', 200: '#fecdd3', 300: '#fda4af', 400: '#fb7185', 500: '#f43f5e', 600: '#e11d48', 700: '#be123c' },
+                        blue: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' },
+                        amber: { 50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' },
+                        purple: { 50: '#faf5ff', 100: '#f3e8ff', 200: '#e9d5ff', 300: '#d8b4fe', 400: '#c084fc', 500: '#a855f7', 600: '#9333ea', 700: '#7e22ce' }
                     }
                 }
             }
@@ -665,12 +670,13 @@
     </button>
 
     <script>
-        // Career Data - Complete database of all careers
+        // Career Data - Complete database of ALL careers from the quiz
         const careerData = {
+            // ===== GROUP A: Healthcare & Science =====
             doctor: {
-                title: 'Doctor',
+                title: 'Doctor (MBBS)',
                 icon: '👨‍⚕️',
-                category_color: 'primary',
+                category_color: 'emerald',
                 subtitle: 'Step-by-step guide to becoming a successful Doctor.',
                 overview: 'Medicine is one of the most respected and rewarding professions. Doctors diagnose and treat illnesses, conduct research, and promote public health. The journey requires dedication, academic excellence, and a genuine desire to help others. After completing MBBS, you can specialize in various fields like Cardiology, Neurology, Pediatrics, or Surgery.',
                 details: 'Medical professionals are in high demand globally. The path requires 5.5 years of MBBS including internship, followed by specialization for 3+ years.',
@@ -740,10 +746,455 @@
                     }
                 ]
             },
+            nurse: {
+                title: 'Nursing',
+                icon: '👩‍⚕️',
+                category_color: 'emerald',
+                subtitle: 'Step-by-step guide to becoming a successful Nurse.',
+                overview: 'Nursing is a noble profession focused on patient care, health promotion, and disease prevention. Nurses work alongside doctors and play a crucial role in healthcare delivery. The profession offers diverse opportunities in hospitals, clinics, community health, and specialized areas.',
+                details: 'Nursing requires compassion, patience, and strong clinical skills. The path typically involves a B.Sc Nursing degree followed by registration with the nursing council.',
+                skills: ['Compassion', 'Patient Care', 'Communication', 'Attention to Detail', 'Critical Thinking', 'Teamwork'],
+                fees: {
+                    'Government College': '₹20,000 - ₹1,00,000',
+                    'Private College': '₹1,00,000 - ₹4,00,000',
+                    'Post Basic Nursing': '₹50,000 - ₹2,00,000'
+                },
+                colleges: {
+                    'India': ['AIIMS Delhi', 'CMC Vellore', 'Raksha Shakti University', 'Armed Forces Medical College'],
+                    'Top Government': ['R.A.K. College of Nursing, Delhi', 'Government College of Nursing, Thiruvananthapuram'],
+                    'Top Private': ['Manipal College of Nursing', 'Christian College of Nursing']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2 with PCB',
+                        desc: 'Pass 10+2 with Physics, Chemistry, Biology with minimum 45% marks.',
+                        paths: [
+                            { title: 'Science Stream', desc: 'Choose Science with Biology in 11th and 12th.' },
+                            { title: 'PCB Focus', desc: 'Focus on Biology and Chemistry as core subjects.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue B.Sc Nursing',
+                        desc: 'Complete 4-year Bachelor of Science in Nursing degree from recognized institution.',
+                        paths: [
+                            { title: 'Entrance Exams', desc: 'Clear AIIMS, JIPMER, or state-level nursing entrance exams.' },
+                            { title: 'Direct Admission', desc: 'Apply to private nursing colleges based on merit.' }
+                        ]
+                    },
+                    {
+                        title: 'Register with Nursing Council',
+                        desc: 'Register with State Nursing Council to practice as registered nurse.',
+                        paths: [
+                            { title: 'State Registration', desc: 'Apply for registration with respective State Nursing Council.' },
+                            { title: 'Indian Nursing Council', desc: 'Get recognition from INC for practice in India.' }
+                        ]
+                    },
+                    {
+                        title: 'Start Professional Practice',
+                        desc: 'Begin career in hospitals, clinics, or community health centers.',
+                        paths: [
+                            { title: 'Government Hospitals', desc: 'Apply for staff nurse positions in government hospitals.' },
+                            { title: 'Private Sector', desc: 'Work in corporate hospitals, nursing homes, or clinics.' },
+                            { title: 'Specialization', desc: 'Pursue M.Sc Nursing in specialized areas like Critical Care, Pediatrics, etc.' }
+                        ]
+                    }
+                ]
+            },
+            pharmacist: {
+                title: 'Pharmacist',
+                icon: '💊',
+                category_color: 'emerald',
+                subtitle: 'Step-by-step guide to becoming a successful Pharmacist.',
+                overview: 'Pharmacists are medication experts who ensure safe and effective use of medicines. They work in community pharmacies, hospitals, pharmaceutical companies, and research institutions. The field combines healthcare knowledge with pharmaceutical sciences.',
+                details: 'Pharmacists play a vital role in patient care by dispensing medications, providing drug information, and monitoring therapy outcomes.',
+                skills: ['Attention to Detail', 'Scientific Knowledge', 'Customer Service', 'Ethics', 'Communication', 'Analytical Skills'],
+                fees: {
+                    'Government College': '₹30,000 - ₹1,50,000',
+                    'Private College': '₹2,00,000 - ₹8,00,000',
+                    'Pharm.D': '₹5,00,000 - ₹15,00,000'
+                },
+                colleges: {
+                    'India': ['Jamia Hamdard Delhi', 'NIPER Mohali', 'BITS Pilani', 'Manipal College of Pharmaceutical Sciences'],
+                    'Top Government': ['Delhi Institute of Pharmaceutical Sciences', 'Government College of Pharmacy, Bangalore'],
+                    'Top Private': ['Poona College of Pharmacy', 'LMCP Ahmedabad']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2 with PCB/PCM',
+                        desc: 'Pass 10+2 with Physics, Chemistry, and Biology or Mathematics. Minimum 50% marks.',
+                        paths: [
+                            { title: 'PCB Stream', desc: 'Choose Biology for pharmacy focusing on life sciences.' },
+                            { title: 'PCM Stream', desc: 'Choose Mathematics for pharmaceutical engineering and technology.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue Pharmacy Degree',
+                        desc: 'Complete D.Pharm (2 years) or B.Pharm (4 years) from PCI approved institution.',
+                        paths: [
+                            { title: 'Diploma (D.Pharm)', desc: '2-year diploma course for entry-level pharmacy positions.' },
+                            { title: 'Bachelor (B.Pharm)', desc: '4-year degree for better career opportunities and higher studies.' }
+                        ]
+                    },
+                    {
+                        title: 'Register with Pharmacy Council',
+                        desc: 'Register with State Pharmacy Council to practice as a registered pharmacist.',
+                        paths: [
+                            { title: 'State Registration', desc: 'Apply for registration with respective State Pharmacy Council.' },
+                            { title: 'PCI Recognition', desc: 'Get recognition from Pharmacy Council of India.' }
+                        ]
+                    },
+                    {
+                        title: 'Start Career or Higher Studies',
+                        desc: 'Begin practice or pursue specialization through Pharm.D or M.Pharm.',
+                        paths: [
+                            { title: 'Community Pharmacy', desc: 'Work in retail pharmacy or chain drug stores.' },
+                            { title: 'Hospital Pharmacy', desc: 'Work in hospital pharmacy departments.' },
+                            { title: 'Pharmaceutical Industry', desc: 'Work in manufacturing, quality control, or R&D.' },
+                            { title: 'Higher Studies', desc: 'Pursue M.Pharm or Pharm.D for specialization.' }
+                        ]
+                    }
+                ]
+            },
+            'lab-technician': {
+                title: 'Lab Technician',
+                icon: '🔬',
+                category_color: 'emerald',
+                subtitle: 'Step-by-step guide to becoming a successful Lab Technician.',
+                overview: 'Lab technicians perform diagnostic tests and analyses that help doctors diagnose and treat diseases. They work in clinical laboratories, research facilities, and hospitals. The role requires precision, technical skills, and knowledge of laboratory equipment.',
+                details: 'Medical laboratory technology is a growing field with increasing demand for skilled professionals who can operate advanced diagnostic equipment.',
+                skills: ['Technical Skills', 'Attention to Detail', 'Analytical Skills', 'Patience', 'Organization', 'Problem Solving'],
+                fees: {
+                    'Diploma': '₹20,000 - ₹1,00,000',
+                    'B.Sc MLT': '₹50,000 - ₹3,00,000',
+                    'M.Sc MLT': '₹1,00,000 - ₹5,00,000'
+                },
+                colleges: {
+                    'India': ['AIIMS Delhi', 'CMC Vellore', 'Christian Medical College Ludhiana', 'Manipal University'],
+                    'Top Government': ['Armed Forces Medical College', 'JIPMER Puducherry'],
+                    'Top Private': ['SRM University', 'Lovely Professional University']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2 with PCB',
+                        desc: 'Pass 10+2 with Physics, Chemistry, Biology. Minimum 45-50% marks required.',
+                        paths: [
+                            { title: 'Science Stream', desc: 'Choose Science with Biology in 11th and 12th.' },
+                            { title: 'PCB Focus', desc: 'Focus on Biology and Chemistry as core subjects.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue MLT Course',
+                        desc: 'Complete Diploma (2 years) or B.Sc in Medical Laboratory Technology (3 years).',
+                        paths: [
+                            { title: 'Diploma MLT', desc: '2-year diploma for quick entry into the field.' },
+                            { title: 'B.Sc MLT', desc: '3-year degree for better career prospects.' },
+                            { title: 'Certificate Courses', desc: 'Short-term certification in specialized techniques.' }
+                        ]
+                    },
+                    {
+                        title: 'Gain Practical Experience',
+                        desc: 'Complete internship and hands-on training in hospital laboratories.',
+                        paths: [
+                            { title: 'Hospital Internship', desc: 'Work in clinical laboratory under supervision.' },
+                            { title: 'Diagnostic Center', desc: 'Get experience in private diagnostic centers.' }
+                        ]
+                    },
+                    {
+                        title: 'Start Professional Career',
+                        desc: 'Work in hospitals, diagnostic centers, or research labs.',
+                        paths: [
+                            { title: 'Hospital Labs', desc: 'Work in government or private hospital laboratories.' },
+                            { title: 'Diagnostic Chains', desc: 'Join major diagnostic chains like Dr. Lal PathLabs, SRL.' },
+                            { title: 'Research Labs', desc: 'Work in research institutions and universities.' },
+                            { title: 'Higher Studies', desc: 'Pursue M.Sc MLT for specialization.' }
+                        ]
+                    }
+                ]
+            },
+
+            // ===== GROUP B: Education & Government =====
+            'school-teacher': {
+                title: 'School Teacher',
+                icon: '👨‍🏫',
+                category_color: 'rose',
+                subtitle: 'Step-by-step guide to becoming a successful School Teacher.',
+                overview: 'Teaching is a noble profession that shapes young minds and builds the foundation for future generations. Teachers play a crucial role in developing students\' knowledge, skills, and character. The profession offers immense satisfaction and the opportunity to make a lasting impact on society.',
+                details: 'Teaching requires patience, communication skills, and subject expertise. The path involves a Bachelor of Education (B.Ed) degree after graduation.',
+                skills: ['Communication', 'Patience', 'Subject Expertise', 'Classroom Management', 'Empathy', 'Creativity'],
+                fees: {
+                    'B.Ed': '₹50,000 - ₹2,00,000',
+                    'D.El.Ed': '₹30,000 - ₹1,00,000',
+                    'M.Ed': '₹1,00,000 - ₹3,00,000'
+                },
+                colleges: {
+                    'India': ['Lady Shri Ram College Delhi', 'Jamia Millia Islamia Delhi', 'IGNOU', 'University of Mumbai'],
+                    'Top Government': ['CIE Delhi University', 'Faculty of Education, BHU'],
+                    'Top Private': ['Christ University Bangalore', 'St. Xavier\'s Mumbai']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2 (Any Stream)',
+                        desc: 'Pass 10+2 from a recognized board. Any stream is acceptable, but choose subjects you want to teach.',
+                        paths: [
+                            { title: 'Arts Stream', desc: 'Choose subjects like History, Geography, Political Science.' },
+                            { title: 'Science Stream', desc: 'Choose subjects like Physics, Chemistry, Biology, Mathematics.' },
+                            { title: 'Commerce Stream', desc: 'Choose subjects like Accountancy, Business Studies, Economics.' }
+                        ]
+                    },
+                    {
+                        title: 'Complete Bachelor\'s Degree',
+                        desc: 'Graduate in the subject you wish to teach (BA, B.Sc, B.Com). Minimum 50% marks required.',
+                        paths: [
+                            { title: 'BA', desc: 'For teaching Arts subjects like History, Geography, Languages.' },
+                            { title: 'B.Sc', desc: 'For teaching Science subjects like Physics, Chemistry, Biology, Math.' },
+                            { title: 'B.Com', desc: 'For teaching Commerce subjects like Accountancy, Economics.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue B.Ed Degree',
+                        desc: 'Complete 2-year Bachelor of Education from NCTE recognized institution.',
+                        paths: [
+                            { title: 'Regular B.Ed', desc: 'Full-time 2-year program with teaching internship.' },
+                            { title: 'Distance B.Ed', desc: 'Distance learning option for working professionals.' }
+                        ]
+                    },
+                    {
+                        title: 'Clear TET Exams',
+                        desc: 'Qualify Teacher Eligibility Test (CTET for central, State TET for state government schools).',
+                        paths: [
+                            { title: 'CTET', desc: 'For Kendriya Vidyalayas, Jawahar Navodaya Vidyalayas, and central schools.' },
+                            { title: 'State TET', desc: 'For state government schools (UP TET, Bihar TET, etc.).' }
+                        ]
+                    },
+                    {
+                        title: 'Apply for Teaching Jobs',
+                        desc: 'Apply in government schools, private schools, or Kendriya Vidyalayas.',
+                        paths: [
+                            { title: 'Government Schools', desc: 'Apply through state teaching recruitment boards.' },
+                            { title: 'Private Schools', desc: 'Apply directly to CBSE, ICSE, or state board private schools.' },
+                            { title: 'Kendriya Vidyalayas', desc: 'Apply through KVS recruitment.' }
+                        ]
+                    }
+                ]
+            },
+            'college-lecturer': {
+                title: 'College Lecturer/Professor',
+                icon: '👨‍🎓',
+                category_color: 'rose',
+                subtitle: 'Step-by-step guide to becoming a College Lecturer or Professor.',
+                overview: 'College lecturers and professors teach at the higher education level, conduct research, and mentor future professionals. The role combines teaching, research, and academic administration. It offers intellectual stimulation, research opportunities, and the chance to shape young minds at the university level.',
+                details: 'A career in academia requires deep subject knowledge, research skills, and a passion for teaching. The path typically involves a postgraduate degree and qualifying UGC-NET.',
+                skills: ['Deep Subject Knowledge', 'Research Skills', 'Communication', 'Public Speaking', 'Mentoring', 'Writing'],
+                fees: {
+                    'MA/M.Sc/M.Com': '₹30,000 - ₹2,00,000',
+                    'M.Phil': '₹50,000 - ₹3,00,000',
+                    'PhD': '₹1,00,000 - ₹5,00,000'
+                },
+                colleges: {
+                    'India': ['JNU Delhi', 'Delhi University', 'University of Hyderabad', 'Jadavpur University'],
+                    'Top Central': ['BHU', 'Aligarh Muslim University', 'Pune University'],
+                    'Top Deemed': ['Tata Institute of Social Sciences', 'Symbiosis International University']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2',
+                        desc: 'Pass 10+2 with good marks. Choose stream based on your interest.',
+                        paths: [
+                            { title: 'Arts/Humanities', desc: 'For subjects like History, Political Science, Sociology, Languages.' },
+                            { title: 'Science', desc: 'For subjects like Physics, Chemistry, Biology, Mathematics.' },
+                            { title: 'Commerce', desc: 'For subjects like Accountancy, Economics, Business Studies.' }
+                        ]
+                    },
+                    {
+                        title: 'Complete Bachelor\'s Degree',
+                        desc: 'Graduate with honors in your chosen subject. Aim for at least 55% marks.',
+                        paths: [
+                            { title: 'BA Honors', desc: 'For Arts and Humanities subjects.' },
+                            { title: 'B.Sc Honors', desc: 'For Science subjects.' },
+                            { title: 'B.Com Honors', desc: 'For Commerce subjects.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue Master\'s Degree',
+                        desc: 'Complete MA/M.Sc/M.Com with minimum 55% marks (50% for reserved categories).',
+                        paths: [
+                            { title: 'Regular MA/M.Sc', desc: '2-year full-time postgraduate program.' },
+                            { title: 'Specialization', desc: 'Choose specialization within your subject.' }
+                        ]
+                    },
+                    {
+                        title: 'Clear UGC-NET/JRF',
+                        desc: 'Qualify National Eligibility Test for lectureship and research fellowship.',
+                        paths: [
+                            { title: 'Assistant Professor', desc: 'Clear NET for eligibility to apply for lecturer positions.' },
+                            { title: 'JRF + NET', desc: 'Qualify for research fellowship along with lectureship.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue PhD (Optional)',
+                        desc: 'Doctor of Philosophy for professor positions and research careers.',
+                        paths: [
+                            { title: 'Full-time PhD', desc: '3-5 year research program with fellowship.' },
+                            { title: 'Part-time PhD', desc: 'For working professionals, takes longer duration.' }
+                        ]
+                    },
+                    {
+                        title: 'Apply for Teaching Positions',
+                        desc: 'Apply for Assistant Professor positions in colleges and universities.',
+                        paths: [
+                            { title: 'Central Universities', desc: 'Apply through CUET and university recruitment.' },
+                            { title: 'State Universities', desc: 'Apply through state-level eligibility tests.' },
+                            { title: 'Private Colleges', desc: 'Apply directly to private universities and colleges.' }
+                        ]
+                    }
+                ]
+            },
+            'civil-servant': {
+                title: 'Civil Servant (IAS/IPS)',
+                icon: '🏛️',
+                category_color: 'rose',
+                subtitle: 'Step-by-step guide to becoming a Civil Servant (IAS/IPS/IFS).',
+                overview: 'Civil services offer a prestigious career serving the nation. As an IAS, IPS, or IFS officer, you can shape policies, maintain law and order, or represent India globally. The UPSC exam is one of the toughest but most rewarding examinations in India.',
+                details: 'Civil servants play a crucial role in governance and administration. The selection process takes about 1-2 years and requires extensive preparation.',
+                skills: ['Leadership', 'Administrative Skills', 'Decision Making', 'Communication', 'Integrity', 'Problem Solving'],
+                fees: {
+                    'Coaching': '₹1,00,000 - ₹3,00,000',
+                    'Study Materials': '₹10,000 - ₹30,000',
+                    'Test Series': '₹10,000 - ₹25,000'
+                },
+                colleges: {
+                    'Central Universities': ['Delhi University', 'JNU', 'BHU', 'Aligarh Muslim University'],
+                    'Top Colleges': ['St. Stephen\'s College', 'Lady Shri Ram College', 'Hindu College', 'Presidency College']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete Graduation',
+                        desc: 'Graduate in any discipline from a recognized university. Final year students can also apply.',
+                        paths: [
+                            { title: 'Any Stream', desc: 'Choose any subject - Arts, Science, Commerce, or Engineering.' },
+                            { title: 'Recommended Subjects', desc: 'History, Political Science, Geography, Public Administration, Sociology are helpful.' }
+                        ]
+                    },
+                    {
+                        title: 'Choose Optional Subjects',
+                        desc: 'Select optional subjects for UPSC Mains based on your interest and background.',
+                        paths: [
+                            { title: 'Humanities', desc: 'History, Geography, Political Science, Sociology, Philosophy.' },
+                            { title: 'Science', desc: 'Mathematics, Physics, Chemistry, Botany, Zoology.' },
+                            { title: 'Commerce', desc: 'Commerce & Accountancy, Economics.' },
+                            { title: 'Literature', desc: 'Any Indian language or English literature.' }
+                        ]
+                    },
+                    {
+                        title: 'Clear UPSC CSE Prelims',
+                        desc: 'Qualify the preliminary examination consisting of two papers - General Studies and CSAT.',
+                        paths: [
+                            { title: 'General Studies I', desc: 'Covers History, Geography, Polity, Economy, Science, Environment.' },
+                            { title: 'CSAT', desc: 'Tests comprehension, logical reasoning, and quantitative aptitude.' }
+                        ]
+                    },
+                    {
+                        title: 'Qualify UPSC CSE Mains',
+                        desc: 'Clear the written examination with 9 papers including essay, optional, and language papers.',
+                        paths: [
+                            { title: 'Compulsory Papers', desc: 'Essay, General Studies (4 papers), and language papers.' },
+                            { title: 'Optional Papers', desc: 'Two papers on your chosen optional subject.' }
+                        ]
+                    },
+                    {
+                        title: 'Clear Personality Test',
+                        desc: 'Appear for the interview/personality test conducted by UPSC board.',
+                        paths: [
+                            { title: 'Interview Preparation', desc: 'Prepare for questions on your background, current affairs, and opinion-based questions.' },
+                            { title: 'Mock Interviews', desc: 'Practice with mock interviews at coaching centers.' }
+                        ]
+                    },
+                    {
+                        title: 'Training at LBSNAA',
+                        desc: 'Undergo foundational training at Lal Bahadur Shastri National Academy of Administration.',
+                        paths: [
+                            { title: 'Foundation Course', desc: 'Common training for all civil services at LBSNAA.' },
+                            { title: 'Specialized Training', desc: 'Service-specific training for IAS, IPS, IFS at respective academies.' }
+                        ]
+                    }
+                ]
+            },
+            'police-army': {
+                title: 'Police / Defence Services',
+                icon: '👮',
+                category_color: 'rose',
+                subtitle: 'Step-by-step guide to joining Police or Defence Services.',
+                overview: 'Police and defence services offer an opportunity to serve the nation by maintaining law and order or protecting the country\'s borders. These careers require physical fitness, courage, discipline, and a strong sense of duty.',
+                details: 'The selection process involves physical tests, written exams, and interviews. Different levels of entry are available from constable to officer level.',
+                skills: ['Physical Fitness', 'Leadership', 'Courage', 'Discipline', 'Integrity', 'Quick Decision Making'],
+                fees: {
+                    'Coaching': '₹50,000 - ₹1,50,000',
+                    'Physical Training': '₹20,000 - ₹50,000',
+                    'Application Fees': '₹500 - ₹2,000'
+                },
+                colleges: {
+                    'Officer Training': ['National Defence Academy', 'Indian Military Academy', 'SVP National Police Academy'],
+                    'Constable Training': ['Police Training Schools', 'Recruit Training Centers'],
+                    'Specialized': ['Officers Training Academy', 'Air Force Academy']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2',
+                        desc: 'Pass 10+2 with minimum marks as per specific service requirements.',
+                        paths: [
+                            { title: 'For NDA', desc: 'Pass 10+2 with Physics and Mathematics for Air Force and Navy.' },
+                            { title: 'For Police', desc: 'Any stream acceptable, but physical fitness is crucial.' }
+                        ]
+                    },
+                    {
+                        title: 'Choose Entry Level',
+                        desc: 'Decide whether to join as officer or constable/soldier.',
+                        paths: [
+                            { title: 'Officer Level', desc: 'Join through NDA, CDS, or UPSC CAPF exams.' },
+                            { title: 'Constable/Soldier', desc: 'Join through state police recruitment or army soldier recruitment.' }
+                        ]
+                    },
+                    {
+                        title: 'Prepare Physically',
+                        desc: 'Maintain physical fitness with regular exercise, running, and sports.',
+                        paths: [
+                            { title: 'Physical Training', desc: 'Focus on running, push-ups, sit-ups, and endurance.' },
+                            { title: 'Medical Standards', desc: 'Ensure meeting height, weight, and vision standards.' }
+                        ]
+                    },
+                    {
+                        title: 'Clear Written Exams',
+                        desc: 'Qualify the required written examinations for your chosen service.',
+                        paths: [
+                            { title: 'NDA Exam', desc: 'For entry into National Defence Academy after 12th.' },
+                            { title: 'CDS Exam', desc: 'For graduates joining Indian Military Academy, Naval Academy, Air Force Academy.' },
+                            { title: 'State Police Exams', desc: 'For state police constable or sub-inspector positions.' }
+                        ]
+                    },
+                    {
+                        title: 'Clear Physical & Medical Tests',
+                        desc: 'Pass physical efficiency tests and medical examinations.',
+                        paths: [
+                            { title: 'Physical Test', desc: 'Running, long jump, high jump, and other physical tasks.' },
+                            { title: 'Medical Exam', desc: 'Comprehensive medical check-up for fitness.' }
+                        ]
+                    },
+                    {
+                        title: 'Training Academy',
+                        desc: 'Complete rigorous training at respective academies.',
+                        paths: [
+                            { title: 'Defense Training', desc: 'Training at NDA, IMA, or other defense academies.' },
+                            { title: 'Police Training', desc: 'Training at police training schools or academies.' }
+                        ]
+                    }
+                ]
+            },
+
+            // ===== GROUP C: IT & Engineering =====
             'software-developer': {
                 title: 'Software Developer',
                 icon: '💻',
-                category_color: 'primary',
+                category_color: 'blue',
                 subtitle: 'Step-by-step guide to becoming a successful Software Developer.',
                 overview: 'Software development is one of the fastest-growing careers. Developers design, build, and maintain software applications, websites, and systems. The field offers excellent salary, remote work opportunities, and continuous learning. You can work in product companies, service-based firms, or as a freelancer.',
                 details: 'Software development requires strong programming skills and problem-solving abilities. The path typically involves a degree in computer science or related field, but self-taught developers are also successful.',
@@ -815,80 +1266,238 @@
                     }
                 ]
             },
-            'civil-servant': {
-                title: 'Civil Servant (IAS/IPS)',
-                icon: '🏛️',
-                category_color: 'primary',
-                subtitle: 'Step-by-step guide to becoming a Civil Servant (IAS/IPS/IFS).',
-                overview: 'Civil services offer a prestigious career serving the nation. As an IAS, IPS, or IFS officer, you can shape policies, maintain law and order, or represent India globally. The UPSC exam is one of the toughest but most rewarding examinations in India.',
-                details: 'Civil servants play a crucial role in governance and administration. The selection process takes about 1-2 years and requires extensive preparation.',
-                skills: ['Leadership', 'Administrative Skills', 'Decision Making', 'Communication', 'Integrity', 'Problem Solving'],
+            'ai-ml-engineer': {
+                title: 'AI / ML Engineer',
+                icon: '🤖',
+                category_color: 'blue',
+                subtitle: 'Step-by-step guide to becoming an AI/ML Engineer.',
+                overview: 'Artificial Intelligence and Machine Learning are transforming industries. AI/ML engineers develop intelligent systems that can learn, reason, and make decisions. This cutting-edge field offers exciting opportunities in healthcare, finance, autonomous vehicles, and more.',
+                details: 'AI/ML requires strong mathematical foundations and programming skills. The field is constantly evolving with new algorithms and applications.',
+                skills: ['Python', 'Mathematics', 'Statistics', 'Machine Learning Algorithms', 'Deep Learning', 'Data Analysis'],
                 fees: {
-                    'Coaching': '₹1,00,000 - ₹3,00,000',
-                    'Study Materials': '₹10,000 - ₹30,000',
-                    'Test Series': '₹10,000 - ₹25,000'
+                    'B.Tech AI/ML': '₹2,00,000 - ₹10,00,000',
+                    'M.Tech AI': '₹1,50,000 - ₹5,00,000',
+                    'Online Courses': '₹50,000 - ₹2,00,000'
                 },
                 colleges: {
-                    'Central Universities': ['Delhi University', 'JNU', 'BHU', 'Aligarh Muslim University'],
-                    'Top Colleges': ['St. Stephen\'s College', 'Lady Shri Ram College', 'Hindu College', 'Presidency College']
+                    'IITs': ['IIT Hyderabad', 'IIT Madras', 'IIT Bombay', 'IIT Kharagpur'],
+                    'IIITs': ['IIIT Hyderabad', 'IIIT Bangalore', 'IIIT Delhi'],
+                    'Top Private': ['BITS Pilani', 'VIT Vellore', 'SRM University']
                 },
                 roadmap: [
                     {
-                        title: 'Complete Graduation',
-                        desc: 'Graduate in any discipline from a recognized university. Final year students can also apply.',
+                        title: 'Complete 10+2 with PCM',
+                        desc: 'Pass 10+2 with Physics, Chemistry, Mathematics. Computer Science is an advantage.',
                         paths: [
-                            { title: 'Any Stream', desc: 'Choose any subject - Arts, Science, Commerce, or Engineering.' },
-                            { title: 'Recommended Subjects', desc: 'History, Political Science, Geography, Public Administration, Sociology are helpful.' }
+                            { title: 'PCM Stream', desc: 'Focus on Mathematics, especially calculus and algebra.' },
+                            { title: 'Computer Science', desc: 'Take CS as an optional subject if available.' }
                         ]
                     },
                     {
-                        title: 'Choose Optional Subjects',
-                        desc: 'Select optional subjects for UPSC Mains based on your interest and background.',
+                        title: 'Pursue B.Tech in CS/AI',
+                        desc: 'Join B.Tech in Computer Science with specialization in AI/ML or Data Science.',
                         paths: [
-                            { title: 'Humanities', desc: 'History, Geography, Political Science, Sociology, Philosophy.' },
-                            { title: 'Science', desc: 'Mathematics, Physics, Chemistry, Botany, Zoology.' },
-                            { title: 'Commerce', desc: 'Commerce & Accountancy, Economics.' },
-                            { title: 'Literature', desc: 'Any Indian language or English literature.' }
+                            { title: 'Regular CS', desc: 'B.Tech in Computer Science with AI/ML electives.' },
+                            { title: 'AI Specialization', desc: 'B.Tech in Artificial Intelligence and Machine Learning.' }
                         ]
                     },
                     {
-                        title: 'Clear UPSC CSE Prelims',
-                        desc: 'Qualify the preliminary examination consisting of two papers - General Studies and CSAT.',
+                        title: 'Build Strong Math Foundation',
+                        desc: 'Master mathematics concepts essential for machine learning.',
                         paths: [
-                            { title: 'General Studies I', desc: 'Covers History, Geography, Polity, Economy, Science, Environment.' },
-                            { title: 'CSAT', desc: 'Tests comprehension, logical reasoning, and quantitative aptitude.' }
+                            { title: 'Linear Algebra', desc: 'Vectors, matrices, eigenvalues, SVD.' },
+                            { title: 'Calculus', desc: 'Derivatives, gradients, optimization.' },
+                            { title: 'Probability', desc: 'Probability distributions, Bayes theorem.' },
+                            { title: 'Statistics', desc: 'Descriptive statistics, hypothesis testing.' }
                         ]
                     },
                     {
-                        title: 'Qualify UPSC CSE Mains',
-                        desc: 'Clear the written examination with 9 papers including essay, optional, and language papers.',
+                        title: 'Learn ML Frameworks',
+                        desc: 'Master popular machine learning libraries and frameworks.',
                         paths: [
-                            { title: 'Compulsory Papers', desc: 'Essay, General Studies (4 papers), and language papers.' },
-                            { title: 'Optional Papers', desc: 'Two papers on your chosen optional subject.' }
+                            { title: 'Python Libraries', desc: 'NumPy, Pandas, Matplotlib, Scikit-learn.' },
+                            { title: 'Deep Learning', desc: 'TensorFlow, PyTorch, Keras.' },
+                            { title: 'MLOps', desc: 'Docker, Kubernetes, MLflow.' }
                         ]
                     },
                     {
-                        title: 'Clear Personality Test',
-                        desc: 'Appear for the interview/personality test conducted by UPSC board.',
+                        title: 'Work on Projects',
+                        desc: 'Build a portfolio of AI/ML projects to showcase your skills.',
                         paths: [
-                            { title: 'Interview Preparation', desc: 'Prepare for questions on your background, current affairs, and opinion-based questions.' },
-                            { title: 'Mock Interviews', desc: 'Practice with mock interviews at coaching centers.' }
+                            { title: 'Kaggle Competitions', desc: 'Participate in machine learning competitions.' },
+                            { title: 'Research Papers', desc: 'Implement papers from arXiv and conferences.' },
+                            { title: 'Industry Projects', desc: 'Work on real-world problems during internships.' }
                         ]
                     },
                     {
-                        title: 'Training at LBSNAA',
-                        desc: 'Undergo foundational training at Lal Bahadur Shastri National Academy of Administration.',
+                        title: 'Start Career or Higher Studies',
+                        desc: 'Join as AI/ML engineer or pursue M.Tech/MS for research roles.',
                         paths: [
-                            { title: 'Foundation Course', desc: 'Common training for all civil services at LBSNAA.' },
-                            { title: 'Specialized Training', desc: 'Service-specific training for IAS, IPS, IFS at respective academies.' }
+                            { title: 'Tech Companies', desc: 'Join companies like Google, Microsoft, Amazon, Meta.' },
+                            { title: 'AI Startups', desc: 'Work in innovative AI startups.' },
+                            { title: 'Research', desc: 'Pursue M.Tech or MS for research positions.' }
                         ]
                     }
                 ]
             },
+            'civil-engineer': {
+                title: 'Civil Engineer',
+                icon: '🏗️',
+                category_color: 'blue',
+                subtitle: 'Step-by-step guide to becoming a successful Civil Engineer.',
+                overview: 'Civil engineers design, construct, and maintain infrastructure projects like buildings, roads, bridges, dams, and water systems. They play a crucial role in shaping the physical environment and improving quality of life. The field combines creativity with technical expertise.',
+                details: 'Civil engineering offers diverse specializations including structural, transportation, geotechnical, and environmental engineering.',
+                skills: ['Design Skills', 'Mathematics', 'Project Management', 'Problem Solving', 'Attention to Detail', 'Teamwork'],
+                fees: {
+                    'Government College': '₹50,000 - ₹2,00,000',
+                    'Private College': '₹2,00,000 - ₹8,00,000',
+                    'M.Tech': '₹1,00,000 - ₹3,00,000'
+                },
+                colleges: {
+                    'IITs': ['IIT Madras', 'IIT Delhi', 'IIT Bombay', 'IIT Kharagpur', 'IIT Roorkee'],
+                    'NITs': ['NIT Trichy', 'NIT Surathkal', 'NIT Warangal'],
+                    'Top Private': ['BITS Pilani', 'VIT Vellore', 'Thapar University']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2 with PCM',
+                        desc: 'Pass 10+2 with Physics, Chemistry, Mathematics. Minimum 60% marks for top colleges.',
+                        paths: [
+                            { title: 'PCM Stream', desc: 'Choose Physics, Chemistry, Mathematics in 11th and 12th.' },
+                            { title: 'Drawing/Engg Graphics', desc: 'Take Engineering Drawing as an optional subject if available.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue B.Tech in Civil Engineering',
+                        desc: 'Join a reputed engineering college for Bachelor of Technology in Civil Engineering.',
+                        paths: [
+                            { title: 'JEE Main/Advanced', desc: 'Clear JEE for admission to IITs, NITs.' },
+                            { title: 'State Entrance Exams', desc: 'Clear state-level exams like MHT-CET, KCET, WBJEE.' },
+                            { title: 'Private University Exams', desc: 'Clear exams like BITSAT, VITEEE.' }
+                        ]
+                    },
+                    {
+                        title: 'Study Core Subjects',
+                        desc: 'Master fundamental civil engineering subjects during your degree.',
+                        paths: [
+                            { title: 'Structural Engineering', desc: 'Study mechanics, strength of materials, structural analysis.' },
+                            { title: 'Geotechnical Engineering', desc: 'Study soil mechanics, foundation engineering.' },
+                            { title: 'Transportation Engineering', desc: 'Study highway, railway, and airport engineering.' },
+                            { title: 'Environmental Engineering', desc: 'Study water supply, wastewater treatment, pollution control.' }
+                        ]
+                    },
+                    {
+                        title: 'Gain Practical Experience',
+                        desc: 'Complete internships and site visits for hands-on experience.',
+                        paths: [
+                            { title: 'Site Internship', desc: 'Work on construction sites to understand practical aspects.' },
+                            { title: 'Design Internship', desc: 'Work with consulting firms on design projects.' },
+                            { title: 'Government Projects', desc: 'Intern with PWD, CPWD, or other government agencies.' }
+                        ]
+                    },
+                    {
+                        title: 'Choose Specialization',
+                        desc: 'Select a specialization for M.Tech or early career focus.',
+                        paths: [
+                            { title: 'Structural Engineering', desc: 'Design buildings, bridges, and other structures.' },
+                            { title: 'Geotechnical Engineering', desc: 'Work on foundations, tunnels, and earth structures.' },
+                            { title: 'Transportation Engineering', desc: 'Work on highways, railways, and airports.' },
+                            { title: 'Environmental Engineering', desc: 'Work on water treatment and pollution control.' }
+                        ]
+                    },
+                    {
+                        title: 'Start Professional Career',
+                        desc: 'Work in construction, consulting, or government sectors.',
+                        paths: [
+                            { title: 'Construction Companies', desc: 'Work with L&T, Shapoorji Pallonji, etc.' },
+                            { title: 'Consulting Firms', desc: 'Work with design consulting firms.' },
+                            { title: 'Government Jobs', desc: 'Join PWD, CPWD, railways, or public sector units.' },
+                            { title: 'Higher Studies', desc: 'Pursue M.Tech or MBA for career advancement.' }
+                        ]
+                    }
+                ]
+            },
+            'mechanical-engineer': {
+                title: 'Mechanical Engineer',
+                icon: '⚙️',
+                category_color: 'blue',
+                subtitle: 'Step-by-step guide to becoming a successful Mechanical Engineer.',
+                overview: 'Mechanical engineering is one of the broadest and oldest engineering disciplines. Mechanical engineers design, develop, and manufacture mechanical systems, from tiny components to large machinery. They work in automotive, aerospace, energy, manufacturing, and robotics industries.',
+                details: 'Mechanical engineering offers diverse career opportunities and is often called the "mother of all engineering branches".',
+                skills: ['Mechanical Aptitude', 'Problem Solving', 'Design Skills', 'Mathematics', 'Physics', 'Creativity'],
+                fees: {
+                    'Government College': '₹50,000 - ₹2,00,000',
+                    'Private College': '₹2,00,000 - ₹8,00,000',
+                    'M.Tech': '₹1,00,000 - ₹3,00,000'
+                },
+                colleges: {
+                    'IITs': ['IIT Madras', 'IIT Delhi', 'IIT Bombay', 'IIT Kanpur', 'IIT Kharagpur'],
+                    'NITs': ['NIT Trichy', 'NIT Surathkal', 'NIT Warangal'],
+                    'Top Private': ['BITS Pilani', 'VIT Vellore', 'PSG Tech', 'COEP Pune']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2 with PCM',
+                        desc: 'Pass 10+2 with Physics, Chemistry, Mathematics. Minimum 60% marks for top colleges.',
+                        paths: [
+                            { title: 'PCM Stream', desc: 'Choose Physics, Chemistry, Mathematics in 11th and 12th.' },
+                            { title: 'Additional Subjects', desc: 'Take Engineering Drawing or Computer Science if available.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue B.Tech in Mechanical Engineering',
+                        desc: 'Join a reputed engineering college for Bachelor of Technology in Mechanical Engineering.',
+                        paths: [
+                            { title: 'JEE Main/Advanced', desc: 'Clear JEE for admission to IITs, NITs.' },
+                            { title: 'State Entrance Exams', desc: 'Clear state-level exams like MHT-CET, KCET, WBJEE.' },
+                            { title: 'Private University Exams', desc: 'Clear exams like BITSAT, VITEEE.' }
+                        ]
+                    },
+                    {
+                        title: 'Study Core Subjects',
+                        desc: 'Master fundamental mechanical engineering subjects.',
+                        paths: [
+                            { title: 'Thermodynamics', desc: 'Study heat transfer, energy conversion, power cycles.' },
+                            { title: 'Fluid Mechanics', desc: 'Study fluid behavior, pumps, turbines.' },
+                            { title: 'Solid Mechanics', desc: 'Study stress analysis, material strength.' },
+                            { title: 'Manufacturing', desc: 'Study production processes, machining, automation.' }
+                        ]
+                    },
+                    {
+                        title: 'Learn Design Software',
+                        desc: 'Master CAD and simulation tools used in industry.',
+                        paths: [
+                            { title: 'CAD Software', desc: 'Learn AutoCAD, SolidWorks, CATIA, or Creo.' },
+                            { title: 'Simulation Tools', desc: 'Learn ANSYS, MATLAB, or Simulink.' }
+                        ]
+                    },
+                    {
+                        title: 'Gain Practical Experience',
+                        desc: 'Complete internships in manufacturing or design companies.',
+                        paths: [
+                            { title: 'Manufacturing Internship', desc: 'Work in production plants or workshops.' },
+                            { title: 'Design Internship', desc: 'Work with design engineering teams.' },
+                            { title: 'Research Internship', desc: 'Work in R&D departments of companies.' }
+                        ]
+                    },
+                    {
+                        title: 'Start Career or Specialize',
+                        desc: 'Choose industry or pursue higher studies in specialization.',
+                        paths: [
+                            { title: 'Core Industries', desc: 'Work in automotive, aerospace, manufacturing, or energy sectors.' },
+                            { title: 'Design & Analysis', desc: 'Work in design and simulation roles.' },
+                            { title: 'Higher Studies', desc: 'Pursue M.Tech in specialized areas like robotics, thermal, or design.' },
+                            { title: 'Management', desc: 'Pursue MBA for management roles in engineering companies.' }
+                        ]
+                    }
+                ]
+            },
+
+            // ===== GROUP D: Business, Finance & Law =====
             'chartered-accountant': {
                 title: 'Chartered Accountant',
                 icon: '📊',
-                category_color: 'primary',
+                category_color: 'amber',
                 subtitle: 'Step-by-step guide to becoming a Chartered Accountant.',
                 overview: 'Chartered Accountancy is one of the most prestigious and rewarding careers in finance. CAs handle accounting, taxation, auditing, and financial management for individuals and organizations. The ICAI offers this qualification with a structured 3-level program.',
                 details: 'CA is a highly respected qualification in India and globally. The course requires dedication, analytical skills, and practical training.',
@@ -951,6 +1560,453 @@
                         paths: [
                             { title: 'Final Groups', desc: 'Clear both groups of CA Final covering advanced topics.' },
                             { title: 'Membership', desc: 'Apply for ICAI membership and certificate of practice.' }
+                        ]
+                    }
+                ]
+            },
+            'bank-officer': {
+                title: 'Bank Officer (PO/Clerk)',
+                icon: '🏦',
+                category_color: 'amber',
+                subtitle: 'Step-by-step guide to becoming a Bank Officer.',
+                overview: 'Bank officers manage banking operations, handle customer accounts, process loans, and ensure regulatory compliance. The banking sector offers stable careers with good growth prospects. Positions include Probationary Officer (PO) and Clerk in public and private sector banks.',
+                details: 'Banking jobs are secure with good benefits. Selection is through competitive exams conducted by IBPS and individual banks.',
+                skills: ['Numerical Ability', 'Communication', 'Customer Service', 'Banking Knowledge', 'Attention to Detail', 'Integrity'],
+                fees: {
+                    'Coaching': '₹30,000 - ₹1,00,000',
+                    'Test Series': '₹5,000 - ₹15,000',
+                    'Study Materials': '₹5,000 - ₹10,000'
+                },
+                colleges: {
+                    'Training Academies': ['NIBM Pune', 'Bankers Training Colleges', 'Staff Training Centers'],
+                    'Coaching Centers': ['Career Power', 'Mahendras', 'Adda247']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2 (Any Stream)',
+                        desc: 'Pass 10+2 from a recognized board. Commerce background helpful but not mandatory.',
+                        paths: [
+                            { title: 'Commerce Stream', desc: 'Choose Commerce with Accounts and Economics.' },
+                            { title: 'Other Streams', desc: 'Science or Arts students can also prepare.' }
+                        ]
+                    },
+                    {
+                        title: 'Complete Graduation',
+                        desc: 'Graduate in any discipline from a recognized university. Minimum 50-60% marks required.',
+                        paths: [
+                            { title: 'B.Com', desc: 'Bachelor of Commerce for strong foundation in banking.' },
+                            { title: 'BA/B.Sc/BBA', desc: 'Any degree is acceptable for bank exams.' }
+                        ]
+                    },
+                    {
+                        title: 'Prepare for Bank Exams',
+                        desc: 'Study quantitative aptitude, reasoning, English, and general awareness.',
+                        paths: [
+                            { title: 'Self Study', desc: 'Use standard books and online resources.' },
+                            { title: 'Coaching', desc: 'Join coaching for structured preparation.' },
+                            { title: 'Online Courses', desc: 'Take online courses and test series.' }
+                        ]
+                    },
+                    {
+                        title: 'Apply for Bank Exams',
+                        desc: 'Apply for IBPS PO, SBI PO, IBPS Clerk, and other bank exams.',
+                        paths: [
+                            { title: 'IBPS PO', desc: 'For probationary officer in public sector banks.' },
+                            { title: 'SBI PO', desc: 'For probationary officer in State Bank of India.' },
+                            { title: 'IBPS Clerk', desc: 'For clerical positions in public sector banks.' },
+                            { title: 'RBI Grade B', desc: 'For officer in Reserve Bank of India.' }
+                        ]
+                    },
+                    {
+                        title: 'Clear Selection Process',
+                        desc: 'Qualify preliminary exam, mains exam, and interview.',
+                        paths: [
+                            { title: 'Prelims', desc: 'Objective type test with reasoning, quant, English.' },
+                            { title: 'Mains', desc: 'Advanced objective and descriptive tests.' },
+                            { title: 'Interview', desc: 'Personal interview for officer level posts.' }
+                        ]
+                    },
+                    {
+                        title: 'Training & Posting',
+                        desc: 'Complete training at bank academies and get branch posting.',
+                        paths: [
+                            { title: 'Training', desc: '2 years probationary training for POs.' },
+                            { title: 'Posting', desc: 'Get posted as Assistant Manager or Officer.' }
+                        ]
+                    }
+                ]
+            },
+            lawyer: {
+                title: 'Lawyer / Advocate',
+                icon: '⚖️',
+                category_color: 'amber',
+                subtitle: 'Step-by-step guide to becoming a Lawyer.',
+                overview: 'Lawyers practice law, represent clients in court, provide legal advice, and uphold justice. The legal profession offers opportunities in litigation, corporate law, judiciary, and legal academia. It requires strong analytical skills, argumentation ability, and ethical conduct.',
+                details: 'Legal education in India includes 5-year integrated LLB after 12th or 3-year LLB after graduation.',
+                skills: ['Argumentation', 'Legal Research', 'Communication', 'Analytical Thinking', 'Persuasion', 'Ethics'],
+                fees: {
+                    '5-Year LLB': '₹2,00,000 - ₹10,00,000',
+                    '3-Year LLB': '₹1,00,000 - ₹5,00,000',
+                    'LLM': '₹1,00,000 - ₹3,00,000'
+                },
+                colleges: {
+                    'National Law Universities': ['NLSIU Bangalore', 'NALSAR Hyderabad', 'NLU Delhi', 'GNLU Gandhinagar'],
+                    'Top Government': ['Faculty of Law, DU', 'Banaras Hindu University', 'Aligarh Muslim University'],
+                    'Top Private': ['Symbiosis Law School Pune', 'Christ University Bangalore', 'Jindal Global Law School']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2',
+                        desc: 'Pass 10+2 from a recognized board. Any stream is acceptable.',
+                        paths: [
+                            { title: 'Arts/Humanities', desc: 'Choose subjects like Political Science, History, English.' },
+                            { title: 'Science/Commerce', desc: 'Any stream is acceptable for law entrance exams.' }
+                        ]
+                    },
+                    {
+                        title: 'Clear CLAT or Other Law Entrance',
+                        desc: 'Qualify Common Law Admission Test for admission to NLUs.',
+                        paths: [
+                            { title: 'CLAT', desc: 'For admission to 22 National Law Universities.' },
+                            { title: 'AILET', desc: 'For admission to NLU Delhi.' },
+                            { title: 'LSAT India', desc: 'For private law schools.' },
+                            { title: 'State Exams', desc: 'For state university law colleges.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue LLB Degree',
+                        desc: 'Complete 5-year integrated LLB or 3-year LLB after graduation.',
+                        paths: [
+                            { title: '5-Year LLB', desc: 'Integrated program after 12th (BA LLB, BBA LLB, B.Sc LLB).' },
+                            { title: '3-Year LLB', desc: 'Program after graduation for those with bachelor\'s degree.' }
+                        ]
+                    },
+                    {
+                        title: 'Complete Internships',
+                        desc: 'Gain practical experience by interning with lawyers and law firms.',
+                        paths: [
+                            { title: 'Litigation Internship', desc: 'Work with senior advocates in courts.' },
+                            { title: 'Corporate Law Internship', desc: 'Work with law firms or corporate legal departments.' },
+                            { title: 'Legal Aid', desc: 'Work with legal aid clinics for social justice.' }
+                        ]
+                    },
+                    {
+                        title: 'Enroll with Bar Council',
+                        desc: 'Register with State Bar Council to practice as an advocate.',
+                        paths: [
+                            { title: 'Bar Enrollment', desc: 'Register with State Bar Council after LLB.' },
+                            { title: 'AIBA Examination', desc: 'Clear All India Bar Examination for certificate of practice.' }
+                        ]
+                    },
+                    {
+                        title: 'Start Practice or Career',
+                        desc: 'Begin practice in courts or join law firms/companies.',
+                        paths: [
+                            { title: 'Litigation', desc: 'Start practice under senior advocate in trial courts or high courts.' },
+                            { title: 'Corporate Law', desc: 'Join law firms as associate.' },
+                            { title: 'Legal Department', desc: 'Work as in-house counsel in companies.' },
+                            { title: 'Higher Studies', desc: 'Pursue LLM for specialization or academic career.' }
+                        ]
+                    }
+                ]
+            },
+            accountant: {
+                title: 'Accountant',
+                icon: '📝',
+                category_color: 'amber',
+                subtitle: 'Step-by-step guide to becoming an Accountant.',
+                overview: 'Accountants manage financial records, prepare accounts, ensure compliance with financial regulations, and provide financial insights to organizations. They play a crucial role in every business, from small firms to large corporations.',
+                details: 'Accounting offers stable career opportunities with growth potential through professional certifications like CA, CMA, or CPA.',
+                skills: ['Tally/ERP', 'Excel', 'Accounting Principles', 'Tax Knowledge', 'Attention to Detail', 'Organization'],
+                fees: {
+                    'B.Com': '₹20,000 - ₹1,00,000',
+                    'M.Com': '₹30,000 - ₹1,50,000',
+                    'Professional Courses': '₹50,000 - ₹2,00,000'
+                },
+                colleges: {
+                    'Top Commerce': ['SRCC Delhi', 'Loyola College Chennai', 'St. Xavier\'s Kolkata', 'Christ University Bangalore'],
+                    'Government': ['Delhi University', 'Mumbai University', 'Calcutta University'],
+                    'Distance Learning': ['IGNOU', 'SOL DU', 'YCMOU']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2 with Commerce',
+                        desc: 'Pass 10+2 with Accountancy, Business Studies, Economics.',
+                        paths: [
+                            { title: 'Commerce Stream', desc: 'Choose Commerce with Accountancy as main subject.' },
+                            { title: 'Mathematics', desc: 'Take Mathematics for better quantitative skills.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue B.Com Degree',
+                        desc: 'Complete Bachelor of Commerce from recognized university.',
+                        paths: [
+                            { title: 'B.Com Regular', desc: '3-year degree with core commerce subjects.' },
+                            { title: 'B.Com Honors', desc: 'Specialized honors program with advanced accounting.' }
+                        ]
+                    },
+                    {
+                        title: 'Learn Accounting Software',
+                        desc: 'Master accounting software used in industry.',
+                        paths: [
+                            { title: 'Tally ERP', desc: 'Most widely used accounting software in India.' },
+                            { title: 'SAP FICO', desc: 'Enterprise resource planning for large companies.' },
+                            { title: 'QuickBooks', desc: 'Popular for small businesses and freelancers.' },
+                            { title: 'MS Excel', desc: 'Advanced Excel for financial analysis.' }
+                        ]
+                    },
+                    {
+                        title: 'Gain Practical Experience',
+                        desc: 'Work as accounts trainee or junior accountant.',
+                        paths: [
+                            { title: 'Articleship', desc: 'Work under practicing CA or CMA.' },
+                            { title: 'Accounting Firm', desc: 'Join accounting firms for hands-on experience.' },
+                            { title: 'Corporate Internship', desc: 'Intern in company accounts department.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue Professional Certifications',
+                        desc: 'Enhance career with professional accounting qualifications.',
+                        paths: [
+                            { title: 'CA', desc: 'Chartered Accountancy for advanced career.' },
+                            { title: 'CMA', desc: 'Cost and Management Accountancy.' },
+                            { title: 'CS', desc: 'Company Secretary for corporate law expertise.' },
+                            { title: 'CPA', desc: 'Certified Public Accountant for international career.' }
+                        ]
+                    },
+                    {
+                        title: 'Start Career',
+                        desc: 'Work as accountant in companies, firms, or independently.',
+                        paths: [
+                            { title: 'Corporate Accountant', desc: 'Work in company accounts department.' },
+                            { title: 'Accounting Firm', desc: 'Join accounting or auditing firms.' },
+                            { title: 'Freelance', desc: 'Work as freelance accountant for small businesses.' },
+                            { title: 'Higher Studies', desc: 'Pursue M.Com or MBA for management roles.' }
+                        ]
+                    }
+                ]
+            },
+
+            // ===== GROUP E: Creative, Media & Arts =====
+            'graphic-designer': {
+                title: 'Graphic Designer',
+                icon: '🎨',
+                category_color: 'purple',
+                subtitle: 'Step-by-step guide to becoming a Graphic Designer.',
+                overview: 'Graphic designers create visual concepts for branding, advertising, websites, and media using design software. They combine art and technology to communicate ideas through images, typography, and layouts. The field offers creative freedom and diverse opportunities.',
+                details: 'Graphic design requires creativity, technical skills, and understanding of visual communication. Portfolio matters more than degrees in this field.',
+                skills: ['Adobe Creative Suite', 'Typography', 'Color Theory', 'Creativity', 'Communication', 'Attention to Detail'],
+                fees: {
+                    'Design Degree': '₹3,00,000 - ₹10,00,000',
+                    'Diploma': '₹50,000 - ₹2,00,000',
+                    'Online Courses': '₹20,000 - ₹1,00,000'
+                },
+                colleges: {
+                    'Top Design': ['NID Ahmedabad', 'NIFT Delhi', 'MIT ID Pune', 'Srishti Institute Bangalore'],
+                    'Fine Arts': ['JJ School of Arts Mumbai', 'MS University Baroda', 'Delhi College of Art']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2',
+                        desc: 'Pass 10+2 from a recognized board. Any stream is acceptable.',
+                        paths: [
+                            { title: 'Arts/Humanities', desc: 'Fine Arts or Humanities helpful but not mandatory.' },
+                            { title: 'Science/Commerce', desc: 'Any stream is acceptable for design courses.' }
+                        ]
+                    },
+                    {
+                        title: 'Build Design Foundation',
+                        desc: 'Learn design principles and software fundamentals.',
+                        paths: [
+                            { title: 'Self Learning', desc: 'Learn through online tutorials and practice.' },
+                            { title: 'Foundation Course', desc: 'Join design foundation programs.' },
+                            { title: 'Software Skills', desc: 'Master Photoshop, Illustrator, InDesign.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue Design Education',
+                        desc: 'Join design school or take structured courses.',
+                        paths: [
+                            { title: 'NID/NIFT', desc: 'Clear entrance exams for premier design institutes.' },
+                            { title: 'Diploma', desc: '1-2 year diploma in graphic design.' },
+                            { title: 'Online Courses', desc: 'Specialized courses from platforms like Coursera, Udemy.' }
+                        ]
+                    },
+                    {
+                        title: 'Create Portfolio',
+                        desc: 'Build a strong portfolio showcasing your best work.',
+                        paths: [
+                            { title: 'Personal Projects', desc: 'Create designs for imaginary brands.' },
+                            { title: 'Freelance Work', desc: 'Take small freelance projects for real experience.' },
+                            { title: 'Internships', desc: 'Work with design agencies or studios.' }
+                        ]
+                    },
+                    {
+                        title: 'Choose Specialization',
+                        desc: 'Focus on specific areas of graphic design.',
+                        paths: [
+                            { title: 'Branding & Identity', desc: 'Logo design, brand guidelines, stationery.' },
+                            { title: 'UI/UX Design', desc: 'Website and app interface design.' },
+                            { title: 'Print Design', desc: 'Brochures, posters, packaging.' },
+                            { title: 'Motion Graphics', desc: 'Animated graphics and video content.' }
+                        ]
+                    },
+                    {
+                        title: 'Start Career',
+                        desc: 'Work in design agencies, companies, or as freelancer.',
+                        paths: [
+                            { title: 'Design Agencies', desc: 'Work with creative agencies on diverse projects.' },
+                            { title: 'In-House Designer', desc: 'Join company design teams.' },
+                            { title: 'Freelance', desc: 'Work independently with multiple clients.' },
+                            { title: 'Studio', desc: 'Start your own design studio.' }
+                        ]
+                    }
+                ]
+            },
+            chef: {
+                title: 'Professional Chef',
+                icon: '👨‍🍳',
+                category_color: 'purple',
+                subtitle: 'Step-by-step guide to becoming a Professional Chef.',
+                overview: 'Chefs create culinary masterpieces, manage kitchen operations, and innovate in the food industry. The profession combines creativity with technical skills, offering opportunities in hotels, restaurants, catering, and food media.',
+                details: 'Culinary arts require passion for food, creativity, and ability to work under pressure. Training from recognized institutes opens doors to global opportunities.',
+                skills: ['Cooking Techniques', 'Creativity', 'Time Management', 'Leadership', 'Food Safety', 'Menu Planning'],
+                fees: {
+                    'IHM Degree': '₹5,00,000 - ₹10,00,000',
+                    'Diploma': '₹1,00,000 - ₹3,00,000',
+                    'Short Courses': '₹50,000 - ₹2,00,000'
+                },
+                colleges: {
+                    'IHMs': ['IHM Mumbai', 'IHM Delhi (Pusa)', 'IHM Bangalore', 'IHM Chennai'],
+                    'Top Private': ['Welcomgroup Graduate School', 'Institute of Hotel Management, Aurangabad'],
+                    'International': ['Le Cordon Bleu', 'Culinary Institute of America']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2',
+                        desc: 'Pass 10+2 from a recognized board. Any stream is acceptable.',
+                        paths: [
+                            { title: 'Any Stream', desc: 'Home Science optional, but cooking passion essential.' },
+                            { title: 'Science Stream', desc: 'Helpful for understanding food science.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue Hotel Management',
+                        desc: 'Join IHM or other hotel management institutes.',
+                        paths: [
+                            { title: 'NCHMCT JEE', desc: 'Clear entrance exam for IHMs.' },
+                            { title: 'Private Institutes', desc: 'Apply to private hotel management colleges.' }
+                        ]
+                    },
+                    {
+                        title: 'Learn Culinary Fundamentals',
+                        desc: 'Master basic cooking techniques and kitchen operations.',
+                        paths: [
+                            { title: 'Basic Techniques', desc: 'Knife skills, stocks, sauces, cooking methods.' },
+                            { title: 'Kitchen Sections', desc: 'Work in different kitchen stations.' },
+                            { title: 'Food Safety', desc: 'Learn hygiene and food safety standards.' }
+                        ]
+                    },
+                    {
+                        title: 'Complete Industrial Training',
+                        desc: 'Gain practical experience in 5-star hotels.',
+                        paths: [
+                            { title: 'Kitchen Training', desc: 'Work in hotel kitchens under senior chefs.' },
+                            { title: 'Exposure', desc: 'Learn about different cuisines and operations.' }
+                        ]
+                    },
+                    {
+                        title: 'Choose Specialization',
+                        desc: 'Focus on specific cuisine or kitchen role.',
+                        paths: [
+                            { title: 'Cuisine Specialization', desc: 'French, Italian, Asian, Indian cuisine.' },
+                            { title: 'Pastry & Bakery', desc: 'Specialize in desserts and breads.' },
+                            { title: 'Kitchen Management', desc: 'Focus on kitchen operations and leadership.' }
+                        ]
+                    },
+                    {
+                        title: 'Start Professional Career',
+                        desc: 'Work in hotels, restaurants, or start your own venture.',
+                        paths: [
+                            { title: 'Hotel Kitchens', desc: 'Start as Commis Chef, progress to Chef de Partie.' },
+                            { title: 'Restaurants', desc: 'Work in standalone restaurants or chains.' },
+                            { title: 'Catering', desc: 'Work in catering companies or events.' },
+                            { title: 'Entrepreneur', desc: 'Start your own restaurant or food business.' }
+                        ]
+                    }
+                ]
+            },
+            photographer: {
+                title: 'Photographer',
+                icon: '📸',
+                category_color: 'purple',
+                subtitle: 'Step-by-step guide to becoming a Professional Photographer.',
+                overview: 'Photographers capture moments, tell stories through images, and work in various genres including wedding, fashion, wildlife, commercial, and portrait photography. The field offers creative expression and the ability to build a personal brand.',
+                details: 'Success in photography depends on technical skills, artistic vision, and business acumen. Building a strong portfolio is essential.',
+                skills: ['Camera Operation', 'Lighting', 'Composition', 'Editing (Photoshop)', 'Creativity', 'Business Skills'],
+                fees: {
+                    'Photography Degree': '₹2,00,000 - ₹5,00,000',
+                    'Diploma': '₹50,000 - ₹2,00,000',
+                    'Workshops': '₹10,000 - ₹50,000'
+                },
+                colleges: {
+                    'Top Institutes': ['National Institute of Photography Mumbai', 'Delhi College of Photography', 'Light & Life Academy Ooty'],
+                    'Fine Arts': ['JJ School of Arts', 'MS University Baroda']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2',
+                        desc: 'Pass 10+2 from a recognized board. Any stream is acceptable.',
+                        paths: [
+                            { title: 'Any Stream', desc: 'Focus on building photography skills as hobby.' },
+                            { title: 'Arts/Humanities', desc: 'Helpful for understanding visual arts.' }
+                        ]
+                    },
+                    {
+                        title: 'Learn Photography Basics',
+                        desc: 'Understand camera operation, composition, and lighting.',
+                        paths: [
+                            { title: 'Self Learning', desc: 'Learn through online tutorials and practice.' },
+                            { title: 'Basic Course', desc: 'Join beginner photography courses.' },
+                            { title: 'Camera Skills', desc: 'Master aperture, shutter speed, ISO.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue Formal Education',
+                        desc: 'Join photography institute for structured learning.',
+                        paths: [
+                            { title: 'Diploma', desc: '1-2 year diploma in photography.' },
+                            { title: 'Degree', desc: '3-year degree in photography or visual arts.' },
+                            { title: 'Workshops', desc: 'Specialized workshops with professionals.' }
+                        ]
+                    },
+                    {
+                        title: 'Build Portfolio',
+                        desc: 'Create a strong portfolio showcasing your best work.',
+                        paths: [
+                            { title: 'Practice Shoots', desc: 'Shoot friends, family, or models for portfolio.' },
+                            { title: 'Assist Professionals', desc: 'Work as assistant to experienced photographers.' },
+                            { title: 'Personal Projects', desc: 'Work on creative projects for portfolio.' }
+                        ]
+                    },
+                    {
+                        title: 'Choose Specialization',
+                        desc: 'Focus on specific photography genres.',
+                        paths: [
+                            { title: 'Wedding Photography', desc: 'Cover weddings and events.' },
+                            { title: 'Fashion Photography', desc: 'Work with models and designers.' },
+                            { title: 'Commercial Photography', desc: 'Product and advertising photography.' },
+                            { title: 'Wildlife/Nature', desc: 'Capture nature and wildlife.' }
+                        ]
+                    },
+                    {
+                        title: 'Start Professional Career',
+                        desc: 'Work as freelance photographer or with studios.',
+                        paths: [
+                            { title: 'Freelance', desc: 'Work independently with direct clients.' },
+                            { title: 'Photography Studio', desc: 'Join established photography studios.' },
+                            { title: 'Own Studio', desc: 'Start your own photography business.' },
+                            { title: 'Agency Work', desc: 'Work with advertising agencies or media houses.' }
                         ]
                     }
                 ]
