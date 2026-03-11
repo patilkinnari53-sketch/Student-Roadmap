@@ -1,0 +1,303 @@
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-md border-t border-slate-200/50 z-40 safe-bottom">
+  <div class="container mx-auto px-2">
+    <div class="flex items-center justify-around py-2">
+      
+      <!-- Home -->
+      <a href="index.html" 
+        class="flex flex-col items-center px-3 py-1 rounded-xl transition-all duration-300 group active:scale-95">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 group-hover:from-primary-100 group-hover:to-secondary-100 transition-all duration-300">
+          <i class="fas fa-home text-lg text-primary-500 group-hover:text-primary-600 transition-colors"></i>
+        </div>
+        <span class="text-[10px] font-medium text-slate-600 group-hover:text-primary-600 transition-colors mt-0.5">Home</span>
+      </a>
+
+      <!-- Roadmaps -->
+      <a href="roadmap.html" 
+        class="flex flex-col items-center px-3 py-1 rounded-xl transition-all duration-300 group active:scale-95">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 group-hover:from-primary-100 group-hover:to-secondary-100 transition-all duration-300">
+          <i class="fas fa-map text-lg text-primary-500 group-hover:text-primary-600 transition-colors"></i>
+        </div>
+        <span class="text-[10px] font-medium text-slate-600 group-hover:text-primary-600 transition-colors mt-0.5">Roadmaps</span>
+      </a>
+
+      <!-- Quiz (Center - Highlighted) -->
+      <a href="quiz.html" 
+        class="flex flex-col items-center px-3 py-1 -mt-4 relative group active:scale-95">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity"></div>
+        <div class="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:shadow-xl group-hover:shadow-primary-500/40 group-hover:-translate-y-1 transition-all duration-300">
+          <i class="fas fa-compass text-white text-lg"></i>
+        </div>
+        <span class="text-[10px] font-bold text-primary-600 group-hover:text-primary-700 transition-colors mt-0.5">Quiz</span>
+      </a>
+
+      <!-- About Us -->
+      <a href="about.html" 
+        class="flex flex-col items-center px-3 py-1 rounded-xl transition-all duration-300 group active:scale-95">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 group-hover:from-primary-100 group-hover:to-secondary-100 transition-all duration-300">
+          <i class="fas fa-users text-lg text-primary-500 group-hover:text-primary-600 transition-colors"></i>
+        </div>
+        <span class="text-[10px] font-medium text-slate-600 group-hover:text-primary-600 transition-colors mt-0.5">About</span>
+      </a>
+
+      <!-- Contact -->
+      <a href="contact.html" 
+        class="flex flex-col items-center px-3 py-1 rounded-xl transition-all duration-300 group active:scale-95">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 group-hover:from-primary-100 group-hover:to-secondary-100 transition-all duration-300">
+          <i class="fas fa-envelope text-lg text-primary-500 group-hover:text-primary-600 transition-colors"></i>
+        </div>
+        <span class="text-[10px] font-medium text-slate-600 group-hover:text-primary-600 transition-colors mt-0.5">Contact</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Auth Bottom Sheet (Hidden by default) -->
+<div id="authBottomSheet" 
+  class="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-50 transform translate-y-full transition-transform duration-300 ease-out hidden">
+  <div class="p-6">
+    <!-- Drag handle -->
+    <div class="w-12 h-1 bg-slate-300 rounded-full mx-auto mb-6"></div>
+    
+    <h3 class="text-xl font-bold text-slate-800 mb-2">Join StudentRoadmap</h3>
+    <p class="text-slate-500 text-sm mb-6">Get personalized career guidance and unlock all features</p>
+    
+    <div class="space-y-3">
+      <a href="login.html" class="block w-full">
+        <button class="w-full py-4 bg-primary-500 text-white font-semibold rounded-xl hover:bg-primary-600 transition-all duration-300 active:scale-95 shadow-lg shadow-primary-500/30">
+          <i class="fas fa-sign-in-alt mr-2"></i>
+          Login
+        </button>
+      </a>
+      
+      <a href="signup.html" class="block w-full">
+        <button class="w-full py-4 border-2 border-primary-500 text-primary-500 font-semibold rounded-xl hover:bg-primary-500 hover:text-white transition-all duration-300 active:scale-95">
+          <i class="fas fa-user-plus mr-2"></i>
+          Create Free Account
+        </button>
+      </a>
+      
+      <button id="closeAuthSheet" class="w-full py-3 text-slate-400 hover:text-slate-600 text-sm font-medium transition-colors">
+        Maybe Later
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Script for bottom navigation -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Highlight current page in navigation
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Map pages to their nav items
+    const navLinks = {
+      'index.html': document.querySelector('a[href="index.html"]'),
+      'roadmap.html': document.querySelector('a[href="roadmap.html"]'),
+      'quiz.html': document.querySelector('a[href="quiz.html"]'),
+      'about.html': document.querySelector('a[href="about.html"]'),
+      'contact.html': document.querySelector('a[href="contact.html"]')
+    };
+
+    // Add active class to current page
+    const activeNav = navLinks[currentPage];
+    if (activeNav) {
+      activeNav.classList.add('active-nav');
+      const icon = activeNav.querySelector('i');
+      const text = activeNav.querySelector('span:not(.absolute)');
+      if (icon) {
+        icon.classList.remove('text-primary-500');
+        icon.classList.add('text-white');
+      }
+      if (text) {
+        text.classList.add('text-primary-600', 'font-bold');
+      }
+      const bgDiv = activeNav.querySelector('div:not(.absolute)');
+      if (bgDiv) {
+        bgDiv.classList.add('bg-gradient-to-br', 'from-primary-500', 'to-secondary-500');
+      }
+    }
+
+    // Auth bottom sheet functionality (optional - can be triggered by clicking login/signup)
+    const authSheet = document.getElementById('authBottomSheet');
+    const closeAuthSheet = document.getElementById('closeAuthSheet');
+    
+    // Function to show auth sheet
+    window.showAuthSheet = function() {
+      authSheet.classList.remove('hidden', 'translate-y-full');
+      authSheet.classList.add('translate-y-0');
+      document.body.style.overflow = 'hidden';
+    };
+
+    // Function to hide auth sheet
+    window.hideAuthSheet = function() {
+      authSheet.classList.add('translate-y-full');
+      setTimeout(() => {
+        authSheet.classList.add('hidden');
+      }, 300);
+      document.body.style.overflow = '';
+    };
+
+    // Close sheet on close button click
+    closeAuthSheet?.addEventListener('click', hideAuthSheet);
+
+    // Show sheet when clicking on login/signup in mobile menu (if needed)
+    const mobileLoginBtn = document.querySelector('#mobileMenu a[href="login.html"] button');
+    const mobileSignupBtn = document.querySelector('#mobileMenu a[href="signup.html"] button');
+    
+    if (mobileLoginBtn) {
+      mobileLoginBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        showAuthSheet();
+      });
+    }
+    
+    if (mobileSignupBtn) {
+      mobileSignupBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        showAuthSheet();
+      });
+    }
+
+    // Add touch-friendly ripple effect
+    const navItems = document.querySelectorAll('.bottom-nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('touchstart', function(e) {
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple-effect');
+        this.appendChild(ripple);
+        
+        const x = e.touches[0].clientX - e.target.offsetLeft;
+        const y = e.touches[0].clientY - e.target.offsetTop;
+        
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+  });
+</script>
+
+<!-- Additional CSS for bottom navigation -->
+<style>
+  /* Safe area for notched phones */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Active navigation state */
+  .active-nav div:first-of-type {
+    background: linear-gradient(135deg, #8f3eff, #ff6b4a) !important;
+  }
+
+  .active-nav i {
+    color: white !important;
+  }
+
+  /* Ripple effect for touch */
+  .ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(143, 62, 255, 0.3);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  @keyframes ripple-animation {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  /* Bottom sheet animation */
+  #authBottomSheet {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Active page indicator pulse */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(143, 62, 255, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 15px 5px rgba(143, 62, 255, 0.2);
+    }
+  }
+
+  .active-nav {
+    animation: pulse-glow 2s infinite;
+  }
+
+  /* Center quiz button special styling */
+  a[href="quiz.html"] .w-12.h-12 {
+    box-shadow: 0 4px 15px rgba(143, 62, 255, 0.3);
+  }
+
+  a[href="quiz.html"]:hover .w-12.h-12 {
+    box-shadow: 0 8px 25px rgba(143, 62, 255, 0.4);
+  }
+
+  /* Bottom sheet drag handle animation */
+  #authBottomSheet .w-12.h-1 {
+    transition: width 0.3s ease;
+  }
+
+  #authBottomSheet:hover .w-12.h-1 {
+    width: 3rem;
+    background: #8f3eff;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 380px) {
+    a span:not(.absolute) {
+      font-size: 8px;
+    }
+    
+    a i {
+      font-size: 1rem;
+    }
+    
+    a[href="quiz.html"] .w-12.h-12 {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+    
+    a[href="quiz.html"] i {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Touch-friendly hit areas */
+  a {
+    min-height: 44px;
+    min-width: 44px;
+    position: relative;
+  }
+
+  /* Adjust main content padding for bottom nav */
+  main, .page-bg {
+    padding-bottom: 80px;
+  }
+
+  @media (max-width: 640px) {
+    main, .page-bg {
+      padding-bottom: 70px;
+    }
+  }
+
+  /* Hide the old mobile menu button since we're using bottom nav */
+  #menuButton {
+    display: none;
+  }
+
+  /* Adjust mobile menu to work with bottom nav */
+  #mobileMenu {
+    padding-bottom: 80px;
+  }
+</style>

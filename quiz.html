@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Career Pathfinder Quiz - StudentRoadmap</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                        'xs': '475px',
+                        '3xl': '1920px',
+                    },
+                    colors: {
+                        green: {
+                            50: '#f0fdf4',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                        },
+                        primary: {
+                            50: '#f5f0ff',
+                            100: '#ede0ff',
+                            200: '#d9baff',
+                            300: '#c28fff',
+                            400: '#a864ff',
+                            500: '#8f3eff',
+                            600: '#7520e6',
+                            700: '#5c15b8',
+                            800: '#44118a',
+                            900: '#2f0d5c',
+                        },
+                        secondary: {
+                            50: '#fff0ed',
+                            100: '#ffe0d9',
+                            200: '#ffb9aa',
+                            300: '#ff8f7a',
+                            400: '#ff6b4a',
+                            500: '#ff4d1c',
+                            600: '#e63e0f',
+                            700: '#b8300b',
+                            800: '#8a2408',
+                            900: '#5c1805',
+                        },
+                        tertiary: {
+                            50: '#e6fffa',
+                            100: '#ccfff5',
+                            200: '#99ffeb',
+                            300: '#66ffe0',
+                            400: '#33ffd6',
+                            500: '#00c9a7',
+                            600: '#00b38f',
+                            700: '#008c70',
+                            800: '#006651',
+                            900: '#004031',
+                        },
+                        accent: {
+                            500: '#ffb347',
+                            600: '#ff9f1c',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-in-right': 'slideInRight 0.6s ease-out',
+                        'slide-in-left': 'slideInLeft 0.6s ease-out',
+                        'bounce-subtle': 'bounceSubtle 2s infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'text-reveal': 'textReveal 0.8s ease-out forwards',
+                        'pulse-subtle': 'pulseSubtle 3s ease-in-out infinite',
+                        'slide-right-to-left': 'slideRightToLeft 20s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s infinite',
+                        'wave': 'wave 12s linear infinite',
+                        'scale-up': 'scaleUp 0.3s ease-out',
+                        'blob': 'blob 7s infinite',
+                        'gradient-shift': 'gradientShift 3s ease infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(100px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-100px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        bounceSubtle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px rgba(143, 62, 255, 0.3)' },
+                            '100%': { boxShadow: '0 0 20px rgba(143, 62, 255, 0.6)' },
+                        },
+                        textReveal: {
+                            '0%': {
+                                backgroundSize: '0% 100%',
+                                opacity: '0',
+                                transform: 'translateY(20px)'
+                            },
+                            '100%': {
+                                backgroundSize: '100% 100%',
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            },
+                        },
+                        pulseSubtle: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.8' },
+                        },
+                        slideRightToLeft: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-1000px 0' },
+                            '100%': { backgroundPosition: '1000px 0' },
+                        },
+                        wave: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        scaleUp: {
+                            '0%': { transform: 'scale(0.95)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        gradientShift: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(-45deg, #f5f0ff, #ede0ff, #fff0ed, #e6fffa);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Critical CSS with new color palette */
+        :root {
+            --primary-color: #8f3eff;
+            --primary-dark: #7520e6;
+            --secondary-color: #ff6b4a;
+            --tertiary-color: #00c9a7;
+            --accent-gradient: linear-gradient(135deg, #8f3eff, #ff6b4a, #00c9a7);
+        }
+
+        /* Premium Buttons */
+        .btn-premium, .btn-gradient {
+            background: var(--accent-gradient);
+            color: white !important;
+            font-weight: 600;
+            padding: 0.875rem 2rem;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px -5px rgba(143, 62, 255, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-premium:hover, .btn-gradient:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 15px 30px -5px rgba(143, 62, 255, 0.4);
+            filter: brightness(1.1);
+            color: white !important;
+        }
+
+        /* Page wrapper */
+        .page-bg {
+            background: radial-gradient(circle at top right, rgba(143, 62, 255, 0.1), transparent),
+                        radial-gradient(circle at bottom left, rgba(255, 107, 74, 0.1), transparent),
+                        radial-gradient(circle at center, rgba(0, 201, 167, 0.05), transparent);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated background blobs */
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #8f3eff, #ff6b4a);
+            top: -250px;
+            right: -250px;
+            animation: blob 20s infinite;
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #00c9a7, #8f3eff);
+            bottom: -200px;
+            left: -200px;
+            animation: blob 25s infinite reverse;
+        }
+
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8f3eff; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7520e6; 
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        .slide-up {
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .scale-in {
+            animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Option Card Hover Effects */
+        .option-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -5px rgba(143, 62, 255, 0.15);
+            border-color: rgba(143, 62, 255, 0.5);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .option-card.selected {
+            background: var(--accent-gradient);
+            border: none;
+            color: white !important;
+            box-shadow: 0 10px 30px -5px rgba(143, 62, 255, 0.4);
+            transform: scale(1.02);
+        }
+        
+        .option-card.selected p {
+            color: white !important;
+            font-weight: 600;
+        }
+        
+        .option-card.selected i {
+            color: white !important;
+        }
+
+        /* Glass Card for the quiz container */
+        .quiz-glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero text styling */
+        .hero-text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .hero-text-gradient span {
+            -webkit-text-fill-color: currentcolor;
+        }
+
+        /* Progress Bar */
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(226, 232, 240, 0.5);
+            border-radius: 999px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: var(--accent-gradient);
+            width: 0%;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 2s infinite;
+        }
+
+        /* Result Card Specifics */
+        .result-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* Confetti Canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        /* Animation delays */
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        /* Adjust main content padding for bottom navigation */
+        main {
+            padding-bottom: 80px;
+        }
+        
+        @media (max-width: 640px) {
+            main {
+                padding-bottom: 70px;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+    <!-- Animated Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+    </div>
+
+    <!-- ===== BOTTOM NAVIGATION (serves as the main header/menu) ===== -->
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-md border-t border-slate-200/50 z-40 safe-bottom">
+        <div class="container mx-auto px-2">
+            <div class="flex items-center justify-around py-2">
+                
+                <!-- Home -->
+                <a href="index.html" 
+                    class="flex flex-col items-center px-3 py-1 rounded-xl transition-all duration-300 group active:scale-95">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 group-hover:from-primary-100 group-hover:to-secondary-100 transition-all duration-300">
+                        <i class="fas fa-home text-lg text-primary-500 group-hover:text-primary-600 transition-colors"></i>
+                    </div>
+                    <span class="text-[10px] font-medium text-slate-600 group-hover:text-primary-600 transition-colors mt-0.5">Home</span>
+                </a>
+
+                <!-- Roadmaps -->
+                <a href="roadmap.html" 
+                    class="flex flex-col items-center px-3 py-1 rounded-xl transition-all duration-300 group active:scale-95">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 group-hover:from-primary-100 group-hover:to-secondary-100 transition-all duration-300">
+                        <i class="fas fa-map text-lg text-primary-500 group-hover:text-primary-600 transition-colors"></i>
+                    </div>
+                    <span class="text-[10px] font-medium text-slate-600 group-hover:text-primary-600 transition-colors mt-0.5">Roadmaps</span>
+                </a>
+
+                <!-- Quiz (Center - Highlighted) -->
+                <a href="quiz.html" 
+                    class="flex flex-col items-center px-3 py-1 -mt-4 relative group active:scale-95">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity"></div>
+                    <div class="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:shadow-xl group-hover:shadow-primary-500/40 group-hover:-translate-y-1 transition-all duration-300">
+                        <i class="fas fa-compass text-white text-lg"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-primary-600 group-hover:text-primary-700 transition-colors mt-0.5">Quiz</span>
+                </a>
+
+                <!-- About Us -->
+                <a href="about.html" 
+                    class="flex flex-col items-center px-3 py-1 rounded-xl transition-all duration-300 group active:scale-95">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 group-hover:from-primary-100 group-hover:to-secondary-100 transition-all duration-300">
+                        <i class="fas fa-users text-lg text-primary-500 group-hover:text-primary-600 transition-colors"></i>
+                    </div>
+                    <span class="text-[10px] font-medium text-slate-600 group-hover:text-primary-600 transition-colors mt-0.5">About</span>
+                </a>
+
+                <!-- Contact -->
+                <a href="contact.html" 
+                    class="flex flex-col items-center px-3 py-1 rounded-xl transition-all duration-300 group active:scale-95">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 group-hover:from-primary-100 group-hover:to-secondary-100 transition-all duration-300">
+                        <i class="fas fa-envelope text-lg text-primary-500 group-hover:text-primary-600 transition-colors"></i>
+                    </div>
+                    <span class="text-[10px] font-medium text-slate-600 group-hover:text-primary-600 transition-colors mt-0.5">Contact</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Auth Bottom Sheet (Hidden by default) -->
+    <div id="authBottomSheet" 
+        class="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-50 transform translate-y-full transition-transform duration-300 ease-out hidden">
+        <div class="p-6">
+            <!-- Drag handle -->
+            <div class="w-12 h-1 bg-slate-300 rounded-full mx-auto mb-6"></div>
+            
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Join StudentRoadmap</h3>
+            <p class="text-slate-500 text-sm mb-6">Get personalized career guidance and unlock all features</p>
+            
+            <div class="space-y-3">
+                <a href="login.html" class="block w-full">
+                    <button class="w-full py-4 bg-primary-500 text-white font-semibold rounded-xl hover:bg-primary-600 transition-all duration-300 active:scale-95 shadow-lg shadow-primary-500/30">
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        Login
+                    </button>
+                </a>
+                
+                <a href="signup.html" class="block w-full">
+                    <button class="w-full py-4 border-2 border-primary-500 text-primary-500 font-semibold rounded-xl hover:bg-primary-500 hover:text-white transition-all duration-300 active:scale-95">
+                        <i class="fas fa-user-plus mr-2"></i>
+                        Create Free Account
+                    </button>
+                </a>
+                
+                <button id="closeAuthSheet" class="w-full py-3 text-slate-400 hover:text-slate-600 text-sm font-medium transition-colors">
+                    Maybe Later
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Main Content -->
+    <main class="page-bg relative z-10 pt-8">
+        <div class="container mx-auto px-4 py-4 md:py-8">
+            <div id="app-container" class="w-full max-w-3xl quiz-glass rounded-[1.5rem] md:rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden relative min-h-[500px] md:min-h-[550px] flex flex-col mx-auto transition-all duration-500">
+        
+                <!-- Header / Progress -->
+                <div id="quiz-header" class="bg-white px-6 pt-8 pb-3 hidden">
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-brain text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 leading-none text-sm md:text-base">Career Assessment</h3>
+                                <p class="text-[10px] md:text-xs text-slate-500 mt-1">Discover your potential</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-100 px-3 py-1.5 rounded-xl">
+                            <span id="question-counter" class="text-xs md:text-sm font-bold text-slate-600">1/10</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container bg-slate-100 h-2">
+                        <div id="progress-fill" class="progress-bar rounded-full shadow-[0_0_10px_rgba(143,62,255,0.3)]"></div>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="flex-grow p-6 md:p-10 flex flex-col justify-center relative">
+                    
+                    <!-- START SCREEN -->
+                    <div id="start-screen" class="text-center space-y-6 fade-in">
+                        <div class="relative inline-block">
+                            <div class="absolute inset-0 bg-primary-500 blur-2xl opacity-20 animate-pulse"></div>
+                            <div class="relative w-20 h-20 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center text-white text-3xl shadow-2xl transform -rotate-6 animate-float">
+                                <i class="fas fa-compass"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <h1 class="text-3xl md:text-4xl font-extrabold hero-text-gradient tracking-tight leading-tight">
+                                Find Your Ideal <br><span class="text-primary-600">Career Path</span>
+                            </h1>
+                            <p class="text-base text-slate-600 max-w-md mx-auto leading-relaxed">
+                                Take our scientifically designed assessment to uncover the professional journey that fits you best.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto py-2">
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                                <i class="fas fa-clock text-primary-500 mb-1.5 text-sm"></i>
+                                <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">2 Mins</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                                <i class="fas fa-list-ol text-secondary-500 mb-1.5 text-sm"></i>
+                                <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">10 Ques</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                                <i class="fas fa-bolt text-tertiary-500 mb-1.5 text-sm"></i>
+                                <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Instant</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex flex-col items-center justify-center gap-4" id="quiz-actions">
+                            <button onclick="startQuiz(false)" class="group bg-slate-900 hover:bg-primary-600 text-white font-bold py-4 px-10 rounded-xl shadow-xl transform transition-all hover:-translate-y-1 active:scale-95 flex items-center text-base">
+                                <span>Start Assessment</span>
+                                <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                            <!-- Resume button will be injected here via JS -->
+                        </div>
+                    </div>
+
+                    <!-- QUESTION SCREEN -->
+                    <div id="question-screen" class="hidden w-full">
+                        <div class="mb-8">
+                            <h2 id="question-text" class="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight slide-up"></h2>
+                        </div>
+                        <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                            <!-- Options injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- RESULT SCREEN -->
+                    <div id="result-screen" class="hidden w-full h-full flex flex-col items-center justify-center p-1">
+                        <div class="result-card w-full p-6 md:p-8 text-center scale-in relative overflow-hidden backdrop-blur-xl bg-white/90 border border-white/20 rounded-3xl">
+                            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary-500 via-secondary-500 to-tertiary-500"></div>
+                            
+                            <div class="mb-4 text-6xl animate-float" id="result-icon">🎯</div>
+                            <h2 class="text-[10px] md:text-xs font-bold text-primary-600 uppercase tracking-widest mb-2">Your Recommended Field</h2>
+                            <h1 id="result-title" class="text-2xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight"></h1>
+                            <p id="result-desc" class="text-sm md:text-base text-slate-600 mb-6 leading-relaxed max-w-lg mx-auto"></p>
+
+                            <div class="bg-slate-50/50 backdrop-blur-sm rounded-xl p-5 md:p-6 mb-8 text-left border border-slate-100 shadow-inner">
+                                <h3 class="font-bold text-slate-800 mb-4 flex items-center text-lg">
+                                    <i class="fas fa-rocket text-primary-500 mr-3 text-base"></i> Suggested Career Paths
+                                </h3>
+                                <ul id="career-list" class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 text-slate-700">
+                                    <!-- List items injected via JS -->
+                                </ul>
+                            </div>
+
+                            <div class="space-y-3">
+                                <button onclick="viewRoadmap()" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform transition hover:-translate-y-1 active:scale-95 flex items-center justify-center group text-base">
+                                    <span>Explore All Careers</span>
+                                    <i class="fas fa-compass ml-3 group-hover:rotate-12 transition-transform"></i>
+                                </button>
+                                
+                                <button onclick="resetQuiz()" class="text-slate-400 hover:text-primary-600 text-xs font-semibold transition-colors flex items-center justify-center mx-auto gap-2">
+                                    <i class="fas fa-undo"></i> Retake Assessment
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="mt-20"></div>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white pt-20 pb-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">StudentRoadmap</h3>
+                    <p class="text-slate-400 mb-6">India's most trusted career guidance platform for students after 10th & 12th.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-slate-400">
+                        <li><a href="index.html" class="hover:text-primary-400 transition-colors">Home</a></li>
+                        <li><a href="roadmap.html" class="hover:text-primary-400 transition-colors">Roadmaps</a></li>
+                        <li><a href="quiz.html" class="hover:text-primary-400 transition-colors">Career Quiz</a></li>
+                        <li><a href="about.html" class="hover:text-primary-400 transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-primary-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Popular Careers</h4>
+                    <ul class="space-y-3 text-slate-400">
+                        <li><a href="career_roadmap.html?career=doctor" class="hover:text-primary-400 transition-colors">Doctor</a></li>
+                        <li><a href="career_roadmap.html?career=software-developer" class="hover:text-primary-400 transition-colors">Software Developer</a></li>
+                        <li><a href="career_roadmap.html?career=civil-servant" class="hover:text-primary-400 transition-colors">Civil Servant</a></li>
+                        <li><a href="career_roadmap.html?career=chartered-accountant" class="hover:text-primary-400 transition-colors">Chartered Accountant</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Newsletter</h4>
+                    <p class="text-slate-400 mb-4">Get weekly career tips and updates</p>
+                    <form id="newsletterForm" class="flex flex-col space-y-3">
+                        <input type="email" placeholder="Your email" class="px-4 py-3 bg-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                        <button type="submit" class="px-6 py-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-sm font-bold rounded-xl hover:shadow-lg transition-all hover:-translate-y-1">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm">
+                <p>&copy; 2025 StudentRoadmap. All rights reserved. Made with ❤️ for Indian students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button (adjusted bottom to not overlap nav) -->
+    <button id="backToTop"
+        class="fixed bottom-24 right-8 w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-500 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 z-50 opacity-0 translate-y-4 transition-all">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+
+    <!-- Exit Confirmation Modal -->
+    <div id="exit-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0">
+        <div class="bg-white/90 backdrop-blur-xl rounded-[2rem] p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-all duration-300 border border-white/20">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-bounce">
+                    <i class="fas fa-exclamation-triangle text-amber-500 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-2">Wait, don't go!</h3>
+                <p class="text-slate-500 mb-6">You're on a roll! If you leave now, you'll lose your progress on this question.</p>
+                
+                <div class="flex flex-col gap-3">
+                    <button id="btn-stay" class="w-full btn-premium py-3 rounded-xl shadow-lg">
+                        <i class="fas fa-play mr-2"></i> Keep Going
+                    </button>
+                    <button id="btn-leave" class="w-full py-3 text-slate-400 hover:text-rose-500 font-semibold transition-colors">
+                        Leave Anyway
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Data ---
+        const questions = [
+            {
+                text: "Which activity do you enjoy the most?",
+                options: [
+                    { text: "Helping people recover from illness", type: "A" },
+                    { text: "Teaching or guiding others", type: "B" },
+                    { text: "Fixing gadgets or building things", type: "C" },
+                    { text: "Selling products or managing money", type: "D" },
+                    { text: "Designing, drawing, or creating content", type: "E" }
+                ]
+            },
+            {
+                text: "What kind of problems do you like solving?",
+                options: [
+                    { text: "Health or environmental problems", type: "A" },
+                    { text: "Social or community issues", type: "B" },
+                    { text: "Technical or mechanical problems", type: "C" },
+                    { text: "Business or financial problems", type: "D" },
+                    { text: "Creative or design challenges", type: "E" }
+                ]
+            },
+            {
+                text: "Which school subject do you like most?",
+                options: [
+                    { text: "Biology / Science", type: "A" },
+                    { text: "Social Studies", type: "B" },
+                    { text: "Mathematics / Physics", type: "C" },
+                    { text: "Commerce / Economics", type: "D" },
+                    { text: "Arts / Literature", type: "E" }
+                ]
+            },
+            {
+                text: "What type of workplace do you prefer?",
+                options: [
+                    { text: "Hospital or laboratory", type: "A" },
+                    { text: "School or government office", type: "B" },
+                    { text: "Workshop, site, or tech office", type: "C" },
+                    { text: "Office or business environment", type: "D" },
+                    { text: "Studio, event space, or hotel", type: "E" }
+                ]
+            },
+            {
+                text: "What motivates you the most?",
+                options: [
+                    { text: "Saving lives and improving health", type: "A" },
+                    { text: "Educating and serving society", type: "B" },
+                    { text: "Building and inventing solutions", type: "C" },
+                    { text: "Earning and growing businesses", type: "D" },
+                    { text: "Expressing creativity and entertaining people", type: "E" }
+                ]
+            },
+            {
+                text: "Which role sounds most exciting?",
+                options: [
+                    { text: "Doctor, nurse, researcher", type: "A" },
+                    { text: "Teacher, civil servant", type: "B" },
+                    { text: "Engineer, technician, developer", type: "C" },
+                    { text: "Entrepreneur, banker, lawyer", type: "D" },
+                    { text: "Designer, photographer, chef", type: "E" }
+                ]
+            },
+            {
+                text: "How do you prefer to work?",
+                options: [
+                    { text: "Caring for people directly", type: "A" },
+                    { text: "Guiding and organizing others", type: "B" },
+                    { text: "Working with machines or systems", type: "C" },
+                    { text: "Managing money or deals", type: "D" },
+                    { text: "Creating unique experiences", type: "E" }
+                ]
+            },
+            {
+                text: "What type of projects do you enjoy?",
+                options: [
+                    { text: "Health awareness campaigns", type: "A" },
+                    { text: "Community education programs", type: "B" },
+                    { text: "Building robots or models", type: "C" },
+                    { text: "Business plans or marketing ideas", type: "D" },
+                    { text: "Art, videos, or event planning", type: "E" }
+                ]
+            },
+            {
+                text: "What skill do you want to improve?",
+                options: [
+                    { text: "Medical knowledge or research", type: "A" },
+                    { text: "Communication and leadership", type: "B" },
+                    { text: "Technical and problem-solving", type: "C" },
+                    { text: "Financial and decision-making", type: "D" },
+                    { text: "Creativity and presentation", type: "E" }
+                ]
+            },
+            {
+                text: "Which future sounds most appealing?",
+                options: [
+                    { text: "Working in healthcare or science labs", type: "A" },
+                    { text: "Serving society through teaching or government", type: "B" },
+                    { text: "Developing technology or infrastructure", type: "C" },
+                    { text: "Running a business or legal practice", type: "D" },
+                    { text: "Working in media, design, or hospitality", type: "E" }
+                ]
+            }
+        ];
+
+        const results = {
+            "A": {
+                title: "Healthcare & Science",
+                desc: "You have a natural calling for healing and discovery. Your empathy combined with a scientific mind makes you perfect for roles that improve human life and well-being.",
+                career_links: [
+                    { name: "Doctor", slug: "doctor" },
+                    { name: "Nursing", slug: "nurse" },
+                    { name: "Pharmacist", slug: "pharmacist" },
+                    { name: "Lab Technician", slug: "lab-technician" }
+                ],
+                color: "emerald",
+                icon: "🩺"
+            },
+            "B": {
+                title: "Education & Government",
+                desc: "You are a natural leader and communicator who values social impact. You thrive in environments where you can shape minds, serve the public, and lead communities.",
+                career_links: [
+                    { name: "School Teacher", slug: "school-teacher" },
+                    { name: "College Lecturer", slug: "college-lecturer" },
+                    { name: "Civil Servant (IAS/IPS)", slug: "civil-servant" },
+                    { name: "Police / Defense", slug: "police-army" }
+                ],
+                color: "rose",
+                icon: "👨‍🏫"
+            },
+            "C": {
+                title: "IT & Engineering",
+                desc: "Your logical mind and problem-solving skills are your greatest assets. You excel at building systems, designing infrastructure, and creating the technologies of tomorrow.",
+                career_links: [
+                    { name: "Software Developer", slug: "software-developer" },
+                    { name: "AI / ML Engineer", slug: "ai-ml-engineer" },
+                    { name: "Civil Engineer", slug: "civil-engineer" },
+                    { name: "Mechanical Engineer", slug: "mechanical-engineer" }
+                ],
+                color: "blue",
+                icon: "💻"
+            },
+            "D": {
+                title: "Business, Finance & Law",
+                desc: "You are strategic, analytical, and driven by results. You enjoy navigating complex systems, managing resources, and making high-impact decisions in the professional world.",
+                career_links: [
+                    { name: "Chartered Accountant", slug: "chartered-accountant" },
+                    { name: "Bank Officer", slug: "bank-officer" },
+                    { name: "Lawyer / Advocate", slug: "lawyer" },
+                    { name: "Accountant", slug: "accountant" }
+                ],
+                color: "amber",
+                icon: "💰"
+            },
+            "E": {
+                title: "Creative, Media & Arts",
+                desc: "You see the world through a lens of innovation and aesthetics. Your ability to express ideas uniquely and connect with people makes you a perfect fit for the creative industries.",
+                career_links: [
+                    { name: "Graphic Designer", slug: "graphic-designer" },
+                    { name: "Professional Chef", slug: "chef" },
+                    { name: "Photographer", slug: "photographer" }
+                ],
+                color: "purple",
+                icon: "🎨"
+            }
+        };
+
+        // --- State ---
+        let currentQuestion = 0;
+        let scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+        let userAnswers = [];
+        let isQuizInProgress = false;
+        let intendedUrl = null;
+
+        // --- DOM Elements ---
+        const startScreen = document.getElementById('start-screen');
+        const questionScreen = document.getElementById('question-screen');
+        const resultScreen = document.getElementById('result-screen');
+        const quizHeader = document.getElementById('quiz-header');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const progressFill = document.getElementById('progress-fill');
+        const questionCounter = document.getElementById('question-counter');
+        const exitModal = document.getElementById('exit-modal');
+        const exitModalContent = exitModal?.querySelector('div');
+        const btnStay = document.getElementById('btn-stay');
+        const btnLeave = document.getElementById('btn-leave');
+
+        // --- Functions ---
+
+        // Check for Resume on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedState = localStorage.getItem('quiz_persistence');
+            if (savedState) {
+                try {
+                    const state = JSON.parse(savedState);
+                    const actionsContainer = document.getElementById('quiz-actions');
+                    const resumeBtn = document.createElement('button');
+                    resumeBtn.className = "group bg-emerald-100 hover:bg-emerald-200 text-emerald-700 font-bold py-4 px-8 rounded-2xl transition-all flex items-center";
+                    resumeBtn.innerHTML = `<span>Resume Quiz (Q${state.currentQuestion + 1})</span> <i class="fas fa-redo ml-2 group-hover:rotate-180 transition-transform duration-500"></i>`;
+                    resumeBtn.onclick = () => startQuiz(true);
+                    actionsContainer.appendChild(resumeBtn);
+                } catch (e) {
+                    localStorage.removeItem('quiz_persistence');
+                }
+            }
+
+            // Back to top button functionality
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'translate-y-4');
+                    backToTopBtn.classList.add('opacity-100', 'translate-y-0');
+                } else {
+                    backToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+                    backToTopBtn.classList.add('opacity-0', 'translate-y-4');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Newsletter form submission
+            const newsletterForm = document.getElementById('newsletterForm');
+            newsletterForm?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = e.target.querySelector('input[type="email"]').value;
+                const submitBtn = e.target.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                submitBtn.disabled = true;
+
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+                submitBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+
+                e.target.reset();
+
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                    submitBtn.disabled = false;
+                }, 3000);
+            });
+
+            // Bottom nav active state highlighting
+            const currentPage = window.location.pathname.split('/').pop() || 'quiz.html';
+            const navLinks = {
+                'index.html': document.querySelector('a[href="index.html"]'),
+                'roadmap.html': document.querySelector('a[href="roadmap.html"]'),
+                'quiz.html': document.querySelector('a[href="quiz.html"]'),
+                'about.html': document.querySelector('a[href="about.html"]'),
+                'contact.html': document.querySelector('a[href="contact.html"]')
+            };
+
+            const activeNav = navLinks[currentPage];
+            if (activeNav) {
+                activeNav.classList.add('active-nav');
+                const icon = activeNav.querySelector('i');
+                const text = activeNav.querySelector('span:not(.absolute)');
+                if (icon) {
+                    icon.classList.remove('text-primary-500');
+                    icon.classList.add('text-white');
+                }
+                if (text) {
+                    text.classList.add('text-primary-600', 'font-bold');
+                }
+                const bgDiv = activeNav.querySelector('div:not(.absolute)');
+                if (bgDiv) {
+                    bgDiv.classList.add('bg-gradient-to-br', 'from-primary-500', 'to-secondary-500');
+                }
+            }
+
+            // Auth bottom sheet functionality
+            const authSheet = document.getElementById('authBottomSheet');
+            const closeAuthSheet = document.getElementById('closeAuthSheet');
+            
+            window.showAuthSheet = function() {
+                authSheet.classList.remove('hidden', 'translate-y-full');
+                authSheet.classList.add('translate-y-0');
+                document.body.style.overflow = 'hidden';
+            };
+
+            window.hideAuthSheet = function() {
+                authSheet.classList.add('translate-y-full');
+                setTimeout(() => {
+                    authSheet.classList.add('hidden');
+                }, 300);
+                document.body.style.overflow = '';
+            };
+
+            closeAuthSheet?.addEventListener('click', hideAuthSheet);
+
+            // Add ripple effect to nav items
+            const navItems = document.querySelectorAll('.bottom-nav-item');
+            navItems.forEach(item => {
+              item.addEventListener('touchstart', function(e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple-effect');
+                this.appendChild(ripple);
+                
+                const x = e.touches[0].clientX - e.target.offsetLeft;
+                const y = e.touches[0].clientY - e.target.offsetTop;
+                
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                setTimeout(() => {
+                  ripple.remove();
+                }, 600);
+              });
+            });
+        });
+
+        function startQuiz(resume = false) {
+            isQuizInProgress = true;
+            history.pushState({ quiz: true }, "", window.location.href);
+            initExitIntent();
+
+            if (!resume) {
+                localStorage.removeItem('quiz_persistence');
+                currentQuestion = 0;
+                scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+                
+                localStorage.setItem('quiz_persistence', JSON.stringify({
+                    currentQuestion: 0,
+                    scores: scores,
+                    timestamp: Date.now()
+                }));
+            } else {
+                const savedState = localStorage.getItem('quiz_persistence');
+                if (savedState) {
+                    const state = JSON.parse(savedState);
+                    currentQuestion = state.currentQuestion;
+                    scores = state.scores;
+                }
+            }
+            
+            startScreen.classList.add('hidden');
+            quizHeader.classList.remove('hidden');
+            questionScreen.classList.remove('hidden');
+            questionScreen.classList.add('fade-in');
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = questions[currentQuestion];
+            
+            questionText.classList.remove('slide-up');
+            void questionText.offsetWidth;
+            questionText.classList.add('slide-up');
+            questionText.textContent = q.text;
+
+            optionsContainer.innerHTML = '';
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement('div');
+                btn.className = 'option-card group p-4 md:p-5 rounded-xl flex items-center space-x-3 border-2 transition-all duration-300';
+                btn.innerHTML = `
+                    <div class="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-white flex items-center justify-center font-bold text-slate-500 group-hover:text-primary-600 transition-colors text-sm">
+                        ${String.fromCharCode(65 + index)}
+                    </div>
+                    <p class="text-sm md:text-base font-semibold text-slate-700 group-hover:text-slate-900 leading-tight">${opt.text}</p>
+                `;
+                btn.onclick = () => handleAnswer(opt.type, btn);
+                
+                btn.style.opacity = '0';
+                btn.style.animation = `slideUp 0.4s ease forwards ${index * 0.1}s`;
+                
+                optionsContainer.appendChild(btn);
+            });
+
+            // Update Progress
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            progressFill.style.width = `${progress}%`;
+            questionCounter.textContent = `${currentQuestion + 1}/${questions.length}`;
+        }
+
+        function handleAnswer(type, selectedBtn) {
+            // Visual feedback
+            const allOptions = optionsContainer.children;
+            for (let btn of allOptions) {
+                btn.classList.remove('selected');
+                btn.style.pointerEvents = 'none';
+                btn.style.opacity = '0.5';
+            }
+            selectedBtn.classList.add('selected');
+            selectedBtn.style.opacity = '1';
+
+            // Record Score
+            scores[type]++;
+            
+            // Save persistence state
+            localStorage.setItem('quiz_persistence', JSON.stringify({
+                currentQuestion: currentQuestion + 1,
+                scores: scores,
+                timestamp: Date.now()
+            }));
+
+            // Delay for next question
+            setTimeout(() => {
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    renderQuestion();
+                } else {
+                    showResults();
+                }
+            }, 400);
+        }
+
+        function showResults() {
+            isQuizInProgress = false;
+
+            questionScreen.classList.add('hidden');
+            quizHeader.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+            
+            // Calculate Winner
+            let maxScore = -1;
+            let winner = 'A';
+
+            for (const [key, value] of Object.entries(scores)) {
+                if (value > maxScore) {
+                    maxScore = value;
+                    winner = key;
+                }
+            }
+
+            // Populate Data
+            const resultData = results[winner];
+            document.getElementById('result-title').innerText = resultData.title;
+            document.getElementById('result-desc').innerText = resultData.desc;
+            document.getElementById('result-icon').innerText = resultData.icon;
+            
+            // Update Colors dynamically based on winner
+            const resultIcon = document.getElementById('result-icon');
+            const resultTitleLabel = document.querySelector('#result-screen h2');
+            const roadmapBtn = document.querySelector('#result-screen button');
+            const resultCard = document.querySelector('.result-card');
+            const topBar = resultCard.querySelector('.absolute.top-0');
+
+            // Get color based on winner
+            let colorClass = 'primary';
+            if (winner === 'A') colorClass = 'emerald';
+            else if (winner === 'B') colorClass = 'rose';
+            else if (winner === 'C') colorClass = 'blue';
+            else if (winner === 'D') colorClass = 'amber';
+            else if (winner === 'E') colorClass = 'purple';
+
+            // Reset classes
+            resultTitleLabel.className = `text-[10px] md:text-xs font-bold text-${colorClass}-600 uppercase tracking-widest mb-2`;
+            roadmapBtn.className = `w-full bg-${colorClass}-600 hover:bg-${colorClass}-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform transition hover:-translate-y-1 active:scale-95 flex items-center justify-center group text-base`;
+            topBar.className = `absolute top-0 left-0 w-full h-2 bg-${colorClass}-500`;
+
+            // Populate Career List with clickable links
+            const list = document.getElementById('career-list');
+            list.innerHTML = '';
+            
+            resultData.career_links.forEach(career => {
+                const li = document.createElement('li');
+                li.className = "group/item";
+                li.innerHTML = `
+                    <a href="career_roadmap.html?career=${career.slug}" class="flex items-center p-3 hover:bg-white hover:shadow-md rounded-xl transition-all duration-300 border border-transparent hover:border-${colorClass}-100">
+                        <div class="w-8 h-8 rounded-lg bg-${colorClass}-100 flex items-center justify-center mr-4 group-hover/item:scale-110 transition-transform">
+                            <i class="fas fa-arrow-right text-${colorClass}-600 text-xs"></i>
+                        </div>
+                        <span class="text-gray-700 font-semibold group-hover/item:text-gray-900">${career.name}</span>
+                        <span class="ml-auto text-xs font-medium text-gray-400 group-hover/item:text-${colorClass}-500 flex items-center">
+                            View Roadmap <i class="fas fa-chevron-right ml-2"></i>
+                        </span>
+                    </a>
+                `;
+                list.appendChild(li);
+            });
+
+            // Set Roadmap Link
+            window.viewRoadmap = () => window.location.href = 'roadmap.html';
+
+            // Confetti Effect
+            fireConfetti();
+            
+            // Clear persistence
+            localStorage.removeItem('quiz_persistence');
+        }
+
+        function resetQuiz() {
+            localStorage.removeItem('quiz_persistence');
+            currentQuestion = 0;
+            scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+            resultScreen.classList.add('hidden');
+            startScreen.classList.remove('hidden');
+            startScreen.classList.add('fade-in');
+        }
+
+        // --- Confetti Logic ---
+        function fireConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const particleCount = 150;
+            const colors = ['#8f3eff', '#ff6b4a', '#00c9a7', '#ffb347', '#7520e6'];
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: canvas.width / 2,
+                    y: canvas.height / 2,
+                    vx: (Math.random() - 0.5) * 15,
+                    vy: (Math.random() - 0.5) * 15 - 5,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    rotation: Math.random() * 360,
+                    rotationSpeed: (Math.random() - 0.5) * 10,
+                    gravity: 0.2,
+                    drag: 0.96
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let activeParticles = false;
+
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += p.gravity;
+                    p.vx *= p.drag;
+                    p.vy *= p.drag;
+                    p.rotation += p.rotationSpeed;
+
+                    if (p.y < canvas.height) {
+                        activeParticles = true;
+                        ctx.save();
+                        ctx.translate(p.x, p.y);
+                        ctx.rotate((p.rotation * Math.PI) / 180);
+                        ctx.fillStyle = p.color;
+                        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                        ctx.restore();
+                    }
+                });
+
+                if (activeParticles) {
+                    requestAnimationFrame(animate);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+
+            animate();
+        }
+        
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            const canvas = document.getElementById('confetti-canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Show Modal
+        function showExitModal(url) {
+            intendedUrl = url;
+            exitModal.classList.remove('hidden');
+            void exitModal.offsetWidth;
+            exitModal.classList.remove('opacity-0');
+            exitModalContent.classList.remove('scale-95');
+            exitModalContent.classList.add('scale-100');
+
+            if (!url) {
+                history.pushState({ quiz: true }, "", window.location.href);
+            }
+        }
+
+        // Hide Modal
+        function hideExitModal() {
+            exitModal.classList.add('opacity-0');
+            exitModalContent.classList.remove('scale-100');
+            exitModalContent.classList.add('scale-95');
+            setTimeout(() => {
+                exitModal.classList.add('hidden');
+                intendedUrl = null;
+            }, 300);
+        }
+
+        // Handle Stay
+        btnStay?.addEventListener('click', hideExitModal);
+
+        // Handle Leave
+        btnLeave?.addEventListener('click', () => {
+            isQuizInProgress = false;
+            
+            if (intendedUrl) {
+                window.location.href = intendedUrl;
+            } else {
+                history.go(-2);
+            }
+        });
+
+        // Initialize Listeners
+        function initExitIntent() {
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (!href || href.startsWith('#') || href.startsWith('javascript:') || link.target === '_blank') return;
+                    
+                    if (isQuizInProgress) {
+                        e.preventDefault();
+                        showExitModal(href);
+                    }
+                });
+            });
+
+            window.addEventListener('popstate', (e) => {
+                if (isQuizInProgress) {
+                    showExitModal(null);
+                }
+            });
+        }
+    </script>
+
+    <!-- Additional CSS for bottom navigation -->
+    <style>
+        /* Safe area for notched phones */
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        /* Active navigation state */
+        .active-nav div:first-of-type {
+            background: linear-gradient(135deg, #8f3eff, #ff6b4a) !important;
+        }
+
+        .active-nav i {
+            color: white !important;
+        }
+
+        /* Ripple effect for touch */
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(143, 62, 255, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s ease-out;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Bottom sheet animation */
+        #authBottomSheet {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Active page indicator pulse */
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(143, 62, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 15px 5px rgba(143, 62, 255, 0.2);
+            }
+        }
+
+        .active-nav {
+            animation: pulse-glow 2s infinite;
+        }
+
+        /* Center quiz button special styling */
+        a[href="quiz.html"] .w-12.h-12 {
+            box-shadow: 0 4px 15px rgba(143, 62, 255, 0.3);
+        }
+
+        a[href="quiz.html"]:hover .w-12.h-12 {
+            box-shadow: 0 8px 25px rgba(143, 62, 255, 0.4);
+        }
+
+        /* Bottom sheet drag handle animation */
+        #authBottomSheet .w-12.h-1 {
+            transition: width 0.3s ease;
+        }
+
+        #authBottomSheet:hover .w-12.h-1 {
+            width: 3rem;
+            background: #8f3eff;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 380px) {
+            a span:not(.absolute) {
+                font-size: 8px;
+            }
+            
+            a i {
+                font-size: 1rem;
+            }
+            
+            a[href="quiz.html"] .w-12.h-12 {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+            
+            a[href="quiz.html"] i {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Touch-friendly hit areas */
+        a {
+            min-height: 44px;
+            min-width: 44px;
+            position: relative;
+        }
+
+        /* Hide any old mobile menu button since we're using bottom nav */
+        #menuButton {
+            display: none;
+        }
+
+        /* Adjust mobile menu to work with bottom nav */
+        #mobileMenu {
+            padding-bottom: 80px;
+        }
+    </style>
+</body>
+</html>
