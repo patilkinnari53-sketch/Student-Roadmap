@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title id="pageTitle">Doctor Roadmap - StudentRoadmap</title>
+    <title id="pageTitle">Career Roadmap - StudentRoadmap</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -657,8 +657,8 @@
             <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-60 h-60 rounded-full bg-white opacity-10 blur-3xl"></div>
 
             <div class="container mx-auto px-4 relative z-10">
-                <a href="roadmap.html" class="no-print inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors">
-                    <i class="fas fa-arrow-left mr-2"></i> Back to All Careers
+                <a href="quiz.html" class="no-print inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Quiz Results
                 </a>
                 
                 <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
@@ -813,7 +813,7 @@
     </button>
 
     <script>
-        // Career Data
+        // Career Data - FIXED with correct slugs matching URL parameters
         const careerData = {
             doctor: {
                 title: 'Doctor',
@@ -966,7 +966,7 @@
                 ]
             },
             'civil-servant': {
-                title: 'Civil Servant',
+                title: 'Civil Servant (IAS/IPS)',
                 icon: '🏛️',
                 category: 'competitive',
                 category_color: 'primary',
@@ -1106,6 +1106,62 @@
                         ]
                     }
                 ]
+            },
+            // Add more careers as needed
+            'nurse': {
+                title: 'Nurse',
+                icon: '👩‍⚕️',
+                category: 'medical',
+                category_color: 'primary',
+                subtitle: 'Step-by-step guide to becoming a successful Nurse.',
+                overview: 'Nursing is a noble profession focused on patient care, health promotion, and disease prevention. Nurses work alongside doctors and play a crucial role in healthcare delivery.',
+                details: 'Nursing offers diverse opportunities in hospitals, clinics, community health, and specialized areas.',
+                skills: ['Compassion', 'Patient Care', 'Communication', 'Attention to Detail', 'Critical Thinking', 'Teamwork'],
+                fees: {
+                    'Government College': '₹20,000 - ₹1,00,000',
+                    'Private College': '₹1,00,000 - ₹4,00,000',
+                    'Post Basic Nursing': '₹50,000 - ₹2,00,000'
+                },
+                colleges: {
+                    'India': ['AIIMS Delhi', 'CMC Vellore', 'Raksha Shakti University', 'Armed Forces Medical College'],
+                    'Top Government': ['R.A.K. College of Nursing, Delhi', 'Government College of Nursing, Thiruvananthapuram'],
+                    'Top Private': ['Manipal College of Nursing', 'Christian College of Nursing']
+                },
+                roadmap: [
+                    {
+                        title: 'Complete 10+2 with PCB',
+                        desc: 'Pass 10+2 with Physics, Chemistry, Biology with minimum 45% marks.',
+                        paths: [
+                            { title: 'Science Stream', desc: 'Choose Science with Biology in 11th and 12th.' },
+                            { title: 'PCB Focus', desc: 'Focus on Biology and Chemistry as core subjects.' }
+                        ]
+                    },
+                    {
+                        title: 'Pursue B.Sc Nursing',
+                        desc: 'Complete 4-year Bachelor of Science in Nursing degree from recognized institution.',
+                        paths: [
+                            { title: 'Entrance Exams', desc: 'Clear AIIMS, JIPMER, or state-level nursing entrance exams.' },
+                            { title: 'Direct Admission', desc: 'Apply to private nursing colleges based on merit.' }
+                        ]
+                    },
+                    {
+                        title: 'Register with Nursing Council',
+                        desc: 'Register with State Nursing Council to practice as registered nurse.',
+                        paths: [
+                            { title: 'State Registration', desc: 'Apply for registration with respective State Nursing Council.' },
+                            { title: 'Indian Nursing Council', desc: 'Get recognition from INC for practice in India.' }
+                        ]
+                    },
+                    {
+                        title: 'Start Professional Practice',
+                        desc: 'Begin career in hospitals, clinics, or community health centers.',
+                        paths: [
+                            { title: 'Government Hospitals', desc: 'Apply for staff nurse positions in government hospitals.' },
+                            { title: 'Private Sector', desc: 'Work in corporate hospitals, nursing homes, or clinics.' },
+                            { title: 'Specialization', desc: 'Pursue M.Sc Nursing in specialized areas like Critical Care, Pediatrics, etc.' }
+                        ]
+                    }
+                ]
             }
         };
 
@@ -1124,7 +1180,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const careerSlug = getUrlParameter('career');
             const career = careerData[careerSlug] || careerData.doctor;
-            const color = career.category_color;
+            const color = career.category_color || 'primary';
             
             // Update page title
             document.getElementById('pageTitle').textContent = `${career.title} Roadmap - StudentRoadmap`;
